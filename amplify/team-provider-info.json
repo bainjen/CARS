@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-cars-dev-150801-authRole",
+      "UnauthRoleArn": "arn:aws:iam::639749966934:role/amplify-cars-dev-150801-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::639749966934:role/amplify-cars-dev-150801-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-cars-dev-150801-deployment",
+      "UnauthRoleName": "amplify-cars-dev-150801-unauthRole",
+      "StackName": "amplify-cars-dev-150801",
+      "StackId": "arn:aws:cloudformation:us-west-2:639749966934:stack/amplify-cars-dev-150801/5f2e3850-246a-11eb-9b5b-02e58e6a3e27",
+      "AmplifyAppId": "d2viswwzmgnlrs"
+    }
+  }
+}
