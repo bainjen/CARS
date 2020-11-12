@@ -15,6 +15,21 @@ Begin with what I know (front-end)
 Research frameworks I don't know
 Attempt to connect the backend
 
+## first step
+
+build out react components
+
+- 10x10 acre square field --> [43560 square feet per acre (square root 208.710325571 = feet across one acre)]
+- combine
+- rock obstacles
+
+make base simulation
+
+- wheel size: 60 inch
+- auger length: 8.7 feet --> 240 passes @ 5min each (auger takes up)
+- fuel type: diesel --> 20 gallons per 10 acres (\$350)
+- 1 pass is approx 2,087.1 feet
+
 # Resources
 
 ### AWS Amplify Serverless GraphQL React workshop by Nader Dabit
