@@ -22,6 +22,9 @@ build out react components
 - 10x10 acre square field --> [43560 square feet per acre (square root 208.710325571 = feet across one acre)]
 - combine
 - rock obstacles
+- wheel size input
+- auger length input
+- fuel type input
 
 make base simulation
 
