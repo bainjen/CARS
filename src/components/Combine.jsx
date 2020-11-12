@@ -14,7 +14,7 @@ const Combine = (props) => {
   for (let i = 0; i < 240; i++) {
     augers.push(<AugerDiv />);
   }
-  return <>{augurs}</>;
+  return <>{augers}</>;
 };
 
 export default Combine;
