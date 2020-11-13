@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 // base size = 60 inches - making assumption this is min size
@@ -9,12 +9,22 @@ const WheelDiv = styled.div`
 `;
 
 const Wheels = () => {
+  const [wheelSize, setWheelSize] = useState(60);
+
+  const handlePlus = () => setWheelSize((prev) => prev + 1);
+
+  const handleMinus = () => {
+    if (wheelSize > 60) {
+      setWheelSize((prev) => prev - 1);
+    }
+  };
+
   return (
     <WheelDiv>
       <p>wheel size:</p>
-      <p>60 inches</p>
-      <button>+</button>
-      <button>-</button>
+      <p>{wheelSize} inches</p>
+      <button onClick={handlePlus}>+</button>
+      <button onClick={handleMinus}>-</button>
     </WheelDiv>
   );
 };

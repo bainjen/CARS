@@ -5,6 +5,8 @@ const AugerDiv = styled.div`
   background-color: red;
   width: 0.41684634%;
   height: 0.41684634%;
+  /* width: 0.417%;
+  height: 0.417%; */
 `;
 
 // 8.7 foot auger is 0.41684634% of field width
