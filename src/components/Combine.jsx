@@ -1,22 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CombineContext } from "./CombineContext";
 import styled from "styled-components";
+
+// 8.7/Math.sqrt(43560)*10
+const calculateRelativeAugerSize = (augerLength, squaredFieldUnit) => {
+  return (augerLength / Math.sqrt(squaredFieldUnit)) * 10;
+};
 
 const AugerDiv = styled.div`
   background-color: red;
-  width: 0.41684634%;
-  height: 0.41684634%;
-  /* width: 0.417%;
-  height: 0.417%; */
+  width: ${(props) =>
+    calculateRelativeAugerSize(props.augerLength, props.squaredFieldUnit)}%;
+  height: ${(props) =>
+    calculateRelativeAugerSize(props.augerLength, props.squaredFieldUnit)}%;
 `;
 
 // 8.7 foot auger is 0.41684634% of field width
 
 const Combine = (props) => {
-  // let augers = [];
-  // for (let i = 0; i < 240; i++) {
-  //   augers.push(<AugerDiv />);
-  // }
-  return <AugerDiv />;
+  const { lengthState } = useContext(CombineContext);
+  const { length } = lengthState;
+
+  return <AugerDiv squaredFieldUnit={43560} augerLength={length} />;
 };
 
 export default Combine;
