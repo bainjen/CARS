@@ -12,11 +12,11 @@ const AugerDiv = styled.div`
 // 8.7 foot auger is 0.41684634% of field width
 
 const Combine = (props) => {
-  let augers = [];
-  for (let i = 0; i < 240; i++) {
-    augers.push(<AugerDiv />);
-  }
-  return <>{augers}</>;
+  // let augers = [];
+  // for (let i = 0; i < 240; i++) {
+  //   augers.push(<AugerDiv />);
+  // }
+  return <AugerDiv />;
 };
 
 export default Combine;

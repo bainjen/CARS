@@ -3,6 +3,7 @@ import Auger from "./components/inputs/Auger";
 import Fuel from "./components/inputs/Fuel";
 import Wheels from "./components/inputs/Wheels";
 import styled from "styled-components";
+import { CombineProvider } from "./components/CombineContext";
 
 const InputDiv = styled.div`
   /* display: flex; */
@@ -16,12 +17,14 @@ const AppDiv = styled.div`
 function App() {
   return (
     <AppDiv>
-      <InputDiv>
-        <Auger />
-        <Fuel />
-        <Wheels />
-      </InputDiv>
-      <Field />
+      <CombineProvider>
+        <InputDiv>
+          <Auger />
+          <Fuel />
+          <Wheels />
+        </InputDiv>
+        <Field />
+      </CombineProvider>
     </AppDiv>
   );
 }

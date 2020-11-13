@@ -15,9 +15,9 @@ Begin with what I know (front-end)
 Research frameworks I don't know
 Attempt to connect the backend
 
-## first step
+## step one
 
-build out react components
+build out react components with static data
 
 - 10x10 acre square field --> [43560 square feet per acre (square root 208.710325571 = feet across one acre)]
 - combine
@@ -32,6 +32,7 @@ make base simulation
 - auger length: 8.7 feet --> 240 passes @ 5min each (auger takes up)
 - fuel type: diesel --> 20 gallons per 10 acres (\$350)
 - 1 pass is approx 2,087.1 feet
+- pretending there is not a turn radius -- in real life we would have to cut off corners and have fancy meneuvering to turn around. Base model will ignore this reality and snake around tightly.
 
 # Resources
 
@@ -39,6 +40,12 @@ make base simulation
 
 - https://www.youtube.com/watch?v=HZUlQ7Z2xHQ
 - https://github.com/dabit3/aws-appsync-react-workshop
+
+### useContext
+
+- https://reactjs.org/docs/hooks-reference.html#usecontext
+- https://upmostly.com/tutorials/how-to-use-the-usecontext-hook-in-react
+- https://stackoverflow.com/questions/57840535/passing-multiple-value-and-setter-pairs-to-context-provider-in-react
 
 # Assignment from ATG
 

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { CombineContext } from "../CombineContext";
 import styled from "styled-components";
 
 // diesel or electric
@@ -10,25 +11,26 @@ const FuelDiv = styled.div`
 
 const FuelButton = styled.button`
   background-color: ${(props) =>
-    props.label === props.fuelType ? "yellow" : "gray"};
+    props.label === props.currentFuelType ? "yellow" : "gray"};
 `;
 
 const Fuel = () => {
-  const [fuelType, setFuelType] = useState("diesel");
+  const { fuelState } = useContext(CombineContext);
+  const { fuelType, setFuelType } = fuelState;
 
   return (
     <FuelDiv>
       <p>fuel type: </p>
       <FuelButton
         label={"diesel"}
-        fuelType={fuelType}
+        currentFuelType={fuelType}
         onClick={() => setFuelType("diesel")}
       >
         Diesel
       </FuelButton>
       <FuelButton
         label={"electric"}
-        fuelType={fuelType}
+        currentFuelType={fuelType}
         onClick={() => setFuelType("electric")}
       >
         Electric

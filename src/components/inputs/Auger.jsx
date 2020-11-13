@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { CombineContext } from "../CombineContext";
 import styled from "styled-components";
 
 // min 8.7 feet
@@ -11,26 +12,15 @@ const AugerDiv = styled.div`
 `;
 
 const Auger = () => {
-  const [length, setLength] = useState(8.7);
-
-  const handlePlus = () => {
-    if (length < 25.7) {
-      setLength((prev) => prev + 1);
-    }
-  };
-
-  const handleMinus = () => {
-    if (length > 8.7) {
-      setLength((prev) => prev - 1);
-    }
-  };
+  const { lengthState } = useContext(CombineContext);
+  const { length, increaseLength, decreaseLength } = lengthState;
 
   return (
     <AugerDiv>
       <p>auger length:</p>
       <span>{length} feet</span>
-      <button onClick={handlePlus}>+</button>
-      <button onClick={handleMinus}>-</button>
+      <button onClick={increaseLength}>+</button>
+      <button onClick={decreaseLength}>-</button>
     </AugerDiv>
   );
 };

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { CombineContext } from "../CombineContext";
 import styled from "styled-components";
 
 // base size = 60 inches - making assumption this is min size
@@ -9,22 +10,15 @@ const WheelDiv = styled.div`
 `;
 
 const Wheels = () => {
-  const [wheelSize, setWheelSize] = useState(60);
-
-  const handlePlus = () => setWheelSize((prev) => prev + 1);
-
-  const handleMinus = () => {
-    if (wheelSize > 60) {
-      setWheelSize((prev) => prev - 1);
-    }
-  };
+  const { wheelState } = useContext(CombineContext);
+  const { wheelSize, increaseWheels, decreaseWheels } = wheelState;
 
   return (
     <WheelDiv>
       <p>wheel size:</p>
       <p>{wheelSize} inches</p>
-      <button onClick={handlePlus}>+</button>
-      <button onClick={handleMinus}>-</button>
+      <button onClick={increaseWheels}>+</button>
+      <button onClick={decreaseWheels}>-</button>
     </WheelDiv>
   );
 };
