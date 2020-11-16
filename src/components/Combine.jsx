@@ -18,8 +18,9 @@ const AugerDiv = styled.div`
 // 8.7 foot auger is 0.41684634% of field width
 
 const Combine = (props) => {
-  const { lengthState } = useContext(CombineContext);
+  const { lengthState, fieldState } = useContext(CombineContext);
   const { length } = lengthState;
+  console.log(fieldState.fieldMatrix);
 
   return <AugerDiv squaredFieldUnit={43560} augerLength={length} />;
 };
