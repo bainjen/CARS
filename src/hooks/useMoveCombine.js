@@ -1,12 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { calculateFeetPerMinute } from "../helpers/helpers";
 
 const useMoveCombine = (wheelSize) => {
   const [xPos, setXPos] = useState(0);
+  const [yPos, setYPos] = useState(0);
   const [direction, setDirection] = useState("right");
 
-  // move combine around field in a snake pattern
-  const moveXPosition = (wheelSize) => {
+  // calculates moving combine around field left and right in a snake pattern, assuming no obstacles
+  // if the row is odd, the combine is moving right until the distance reaches the maximum value in feet of a single field point
+  // if the row is even, the combine moves left until it hits 0 again.
+  const movePosition = (wheelSize, augerLength) => {
     const singlePassDistance = Math.sqrt(43520) * 10;
     const distanceDelta = calculateFeetPerMinute(wheelSize);
     setXPos((prev) => {
@@ -14,18 +17,23 @@ const useMoveCombine = (wheelSize) => {
         if (prev + distanceDelta > singlePassDistance) {
           const newDistance = prev + distanceDelta;
           const deltaRight = newDistance - singlePassDistance;
-          const newPosition = singlePassDistance - deltaRight;
+          const newXPosition = singlePassDistance - deltaRight;
           setDirection("left");
-          return newPosition;
+          // console.log("auger length", augerLength);
+          const newYPosition = yPos + augerLength;
+          setYPos(newYPosition);
+          return newXPosition;
         } else {
           return prev + distanceDelta;
         }
       } else {
         if (prev - distanceDelta < 0) {
           const newDistance = prev - distanceDelta;
-          const newPosition = newDistance * -1;
+          const newXPosition = newDistance * -1;
           setDirection("right");
-          return newPosition;
+          const newYPosition = yPos + augerLength;
+          setYPos(newYPosition);
+          return newXPosition;
         } else {
           return prev - distanceDelta;
         }
@@ -33,7 +41,13 @@ const useMoveCombine = (wheelSize) => {
     });
   };
 
-  return { xPos, moveXPosition };
+  return { xPos, yPos, movePosition };
 };
+
+// // calculates the position movement up and down on the field, assuming no obstacles
+
+// const moveYPosition = (augerLength) => {
+
+// };
 
 export default useMoveCombine;

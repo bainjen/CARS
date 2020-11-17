@@ -11,14 +11,17 @@ const WheelDiv = styled.div`
 `;
 
 const Wheels = () => {
-  const { wheelState } = useContext(CombineContext);
+  const { wheelState, lengthState } = useContext(CombineContext);
   const { wheelSize, increaseWheels, decreaseWheels } = wheelState;
-  const { xPos, moveXPosition } = useMoveCombine(wheelSize);
-
+  const { xPos, yPos, movePosition } = useMoveCombine(wheelSize);
+  console.log(lengthState.length);
   return (
     <WheelDiv>
       <p>{xPos}</p>
-      <button onClick={() => moveXPosition(wheelSize)}>move</button>
+      <p>{yPos}</p>
+      <button onClick={() => movePosition(wheelSize, lengthState.length)}>
+        move
+      </button>
       <p>wheel size:</p>
       <p>{wheelSize} inches</p>
       <button onClick={increaseWheels}>+</button>
