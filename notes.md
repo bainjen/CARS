@@ -10,8 +10,8 @@
 
 # Initial Approach
 
-Work out math and logistics
 Begin with what I know (front-end)
+Work out math and logistics
 Research frameworks I don't know
 Attempt to connect the backend
 
@@ -26,7 +26,15 @@ build out react components with static data
 - auger length input
 - fuel type input
 
-make base simulation
+## step two
+
+- I've come to the realization that actually calculting the meneuvering of a real combine requires calculus.
+- For now, I will focus on coding what I know. This means I plan to make a base simulation using a grid system instead, and can improve upon it later once I get the data logging fully connected.
+- A rock is only 1ft x 1ft, but I am going to oversimplify while using the grid to make the combine skip out on the entire grid square containing the rock.
+- Each part of the grid is the size of the auger in the form of a square
+- Can use a matrix to encode passable and impassible values and to foresee obstacles requiring premature turn
+
+# basics
 
 - wheel size: 60 inch
 - auger length: 8.7 feet --> 240 passes @ 5min each (auger takes up)

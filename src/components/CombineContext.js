@@ -1,25 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { createFieldMatrix, findDimension } from "../helpers/helpers";
 
 const CombineContext = React.createContext();
-
-// helper function returns an array of arrays that are filled with the number 1 according to the dimension input
-const createFieldMatrix = (dimension) => {
-  let matrix = [];
-  for (let i = 0; i < dimension; i++) {
-    let row = [];
-    for (let j = 0; j < dimension; j++) {
-      row.push(1);
-    }
-    matrix.push(row);
-  }
-  return matrix;
-};
-
-// helper function that divides field length by auger length and rounds down (making the assumption the combine cannot go over the confines of 10x10 acre field)
-const findDimension = (augerLength, squaredFieldUnit) => {
-  const dimension = (Math.sqrt(squaredFieldUnit) * 10) / augerLength;
-  return Math.floor(dimension);
-};
 
 const CombineProvider = (props) => {
   const [length, setLength] = useState(8.7);
