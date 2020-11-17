@@ -21,3 +21,12 @@ export const findDimension = (augerLength, squaredFieldUnit) => {
   const dimension = (Math.sqrt(squaredFieldUnit) * 10) / augerLength;
   return Math.floor(dimension);
 };
+
+// calculate distance combine moves per minute --speed-- (start at base configuration and build in flexibility)
+// 60 inch base wheel size and increased wheel size increases speed
+
+export const calculateDistancePerMinute = (wheelSize) => {
+  const timeMultiplier = wheelSize - 60;
+  const timeReduction = 5 * timeMultiplier * 0.03;
+  return (Math.sqrt(43520) * 10) / (5 - timeReduction);
+};
