@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { calculateFeetPerMinute } from "../helpers/helpers";
 
-const useMoveCombine = (wheelSize) => {
+const useMoveCombine = (wheelSize, augerLength) => {
   const [xPos, setXPos] = useState(0);
   const [yPos, setYPos] = useState(0);
   const [direction, setDirection] = useState("right");
@@ -9,7 +9,7 @@ const useMoveCombine = (wheelSize) => {
   // calculates moving combine around field left and right in a snake pattern, assuming no obstacles
   // if the row is odd, the combine is moving right until the distance reaches the maximum value in feet of a single field point
   // if the row is even, the combine moves left until it hits 0 again.
-  const movePosition = (wheelSize, augerLength) => {
+  const movePosition = () => {
     const singlePassDistance = Math.sqrt(43520) * 10;
     const distanceDelta = calculateFeetPerMinute(wheelSize);
     setXPos((prev) => {
