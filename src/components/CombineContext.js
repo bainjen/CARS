@@ -9,7 +9,10 @@ const CombineProvider = (props) => {
   const [fuelType, setFuelType] = useState("diesel");
   const [wheelSize, setWheelSize] = useState(60);
   const [fieldMatrix, setFieldMatrix] = useState([]);
-  const { xPos, yPos, movePosition } = useMoveCombine(wheelSize, length);
+  const { xPos, yPos, movePosition, setStartSimulation } = useMoveCombine(
+    wheelSize,
+    length
+  );
 
   // updates based on increase/decrease in user defined auger length
   useEffect(() => {
@@ -44,7 +47,7 @@ const CombineProvider = (props) => {
         fuelState: { fuelType, setFuelType },
         wheelState: { wheelSize, increaseWheels, decreaseWheels },
         fieldState: { fieldMatrix },
-        combinePositionState: { xPos, yPos, movePosition },
+        combinePositionState: { xPos, yPos, movePosition, setStartSimulation },
       }}
     >
       {props.children}
