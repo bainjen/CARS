@@ -55,6 +55,14 @@ build out react components with static data
 - https://upmostly.com/tutorials/how-to-use-the-usecontext-hook-in-react
 - https://stackoverflow.com/questions/57840535/passing-multiple-value-and-setter-pairs-to-context-provider-in-react
 
+### DynamoDB
+
+-https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Operations_Amazon_DynamoDB.html
+
+### AWS Lambda and DynamoDB integration
+
+-https://youtu.be/ijyeE-pXFk0
+
 # Assignment from ATG
 
 Assignment: CARS “Combine Automation Report Simulator”

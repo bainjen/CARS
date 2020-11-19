@@ -18,16 +18,6 @@ const Wheels = () => {
   const { xPos, yPos, movePosition } = combinePositionState;
   console.log(lengthState.length);
 
-  //log variables every 60 seconds = 1 hr
-  //start button
-  //include logic to log to db
-  //if start (state) timer runs
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     movePosition();
-  //   }, 1000);
-  //   return () => clearTimeout(timer);
-  // }, [xPos]);
   return (
     <WheelDiv>
       <p>{xPos}</p>
