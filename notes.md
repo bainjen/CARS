@@ -3,10 +3,14 @@
 - Create React App (familiar)
 - Responsive Design (familiar)
 - Context API (limited knowledge)
-- GraphQL API (limited knowledge)
+- Amplify (completely new) -- AWS Amplify is a set of products and tools that enables mobile and front-end web developers to build and deploy secure, scalable full stack applications, powered by AWS.
+- GraphQL API (limited knowledge) -- querying language - get all needed data in single endpoint used to fetch data from multiple sources -- consists of SCHEMA, QUERIES, MUTATIONS, RESOLVERS
 - DynamoDB (completely new)
 - AWS Lambda backend (completely new)
-  - Amplify (completely new)
+
+schedule tests using lambda functions
+fetch and put data using graphql
+dynamodb is database
 
 # Initial Approach
 
@@ -44,24 +48,45 @@ build out react components with static data
 
 # Resources
 
-### AWS Amplify Serverless GraphQL React workshop by Nader Dabit
-
-- https://www.youtube.com/watch?v=HZUlQ7Z2xHQ
-- https://github.com/dabit3/aws-appsync-react-workshop
-
 ### useContext
 
 - https://reactjs.org/docs/hooks-reference.html#usecontext
 - https://upmostly.com/tutorials/how-to-use-the-usecontext-hook-in-react
 - https://stackoverflow.com/questions/57840535/passing-multiple-value-and-setter-pairs-to-context-provider-in-react
 
+### AWS Amplify Serverless GraphQL React
+
+- https://www.youtube.com/watch?v=HZUlQ7Z2xHQ
+- https://github.com/dabit3/aws-appsync-react-workshop
+- https://rangle.io/blog/creating-a-useful-graphql-server-using-aws-amplify/
+- https://docs.amplify.aws/start/getting-started/setup/q/integration/react#set-up-frontend
+
 ### DynamoDB
 
--https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Operations_Amazon_DynamoDB.html
+- https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Operations_Amazon_DynamoDB.html
+- (limits) https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html
 
 ### AWS Lambda and DynamoDB integration
 
--https://youtu.be/ijyeE-pXFk0
+- https://youtu.be/ijyeE-pXFk0
+
+### Lambda function GraphQL resolvers
+
+- https://dev.to/dabit3/lambda-function-graphql-resolvers-11cd
+
+### Recurring Lambda functions
+
+- https://docs.amplify.aws/cli/function#schedule-recurring-lambda-functions
+
+### How to make serverless GraphQL API usung Lambda and DynamoDB
+
+- https://www.serverless.com/blog/make-serverless-graphql-api-using-lambda-dynamodb
+
+- https://www.serverless.com/blog/running-scalable-reliable-graphql-endpoint-with-serverless
+
+- https://www.youtube.com/watch?v=VG2XWoD-rS0
+
+![serverless flow](https://user-images.githubusercontent.com/1587005/36035218-1c06763c-0d6b-11e8-996b-996243b0975f.png)
 
 # Assignment from ATG
 
