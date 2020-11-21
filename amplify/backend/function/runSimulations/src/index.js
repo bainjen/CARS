@@ -19,6 +19,8 @@ const listConfigurations = gql`
   }
 `;
 
+// "CloudWatchRule": "rate(1 hour)" in parameters.json to run once per hour
+
 exports.handler = async (event) => {
   try {
     const graphqlData = await axios({

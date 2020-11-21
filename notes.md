@@ -82,6 +82,12 @@ will have a unique result
 
 - https://docs.amplify.aws/cli/function#schedule-recurring-lambda-functions
 
+### Lambda batch resolvers
+
+- https://docs.aws.amazon.com/appsync/latest/devguide/tutorial-dynamodb-batch.html
+
+- https://medium.com/@jan.hesters/creating-graphql-batch-operations-for-aws-amplify-with-appsync-and-cognito-ecee6938e8ee
+
 ### How to make serverless GraphQL API usung Lambda and DynamoDB
 
 - https://www.serverless.com/blog/make-serverless-graphql-api-using-lambda-dynamodb

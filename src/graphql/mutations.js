@@ -1,6 +1,20 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const batchAddSimulations = /* GraphQL */ `
+  mutation BatchAddSimulations($simulations: [CreateSimulationInput]) {
+    batchAddSimulations(simulations: $simulations) {
+      id
+      planeTime
+      percentagePlaned
+      cost
+      efficiency
+      configurationID
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createConfiguration = /* GraphQL */ `
   mutation CreateConfiguration(
     $input: CreateConfigurationInput!

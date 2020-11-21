@@ -17,3 +17,16 @@ type Simulation
   efficiency: Float!
   configurationID: ID!
 }
+
+input CreateSimulationInput {
+  id: ID
+  planeTime: Float!
+  percentagePlaned: Float!
+  cost: Float!
+  efficiency: Float!
+  configurationID: ID!
+}
+
+type Mutation {
+  batchAddSimulations(simulations: [CreateSimulationInput]): [Simulation]
+}
