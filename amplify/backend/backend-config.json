@@ -8,13 +8,21 @@
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 365,
-              "description": "API key"
+              "apiKeyExpirationDays": 90,
+              "description": "demo"
             }
           },
           "additionalAuthenticationProviders": []
         }
       }
+    }
+  },
+  "auth": {
+    "cars33feffeb": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
     }
   }
 }

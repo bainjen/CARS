@@ -6,39 +6,39 @@
 - Amplify (completely new) -- AWS Amplify is a set of products and tools that enables mobile and front-end web developers to build and deploy secure, scalable full stack applications, powered by AWS.
 - GraphQL API (limited knowledge) -- querying language - get all needed data in single endpoint used to fetch data from multiple sources -- consists of SCHEMA, QUERIES, MUTATIONS, RESOLVERS
 - DynamoDB (completely new)
-- AWS Lambda backend (completely new)
+- AWS Lambda backend (completely new) Lambda function resolvers allow you to write your AppSync resolver logic in JavaScript.
 
-schedule tests using lambda functions
-fetch and put data using graphql
-dynamodb is database
+* schedule recurring tests using lambda functions
 
 # Initial Approach
 
 Begin with what I know (front-end)
 Work out math and logistics
-Research frameworks I don't know
+Research frameworks I don't know (particularly aws)
 Attempt to connect the backend
 
-## step one
+# Data Relationships
 
-build out react components with static data
+one user ->
+can have many configurations
+configurations ->
+will have many runs (tests)
+each run ->
+will have a unique result
 
-- 10x10 acre square field --> [43560 square feet per acre (square root 208.710325571 = feet across one acre)]
-- combine
-- rock obstacles
-- wheel size input
-- auger length input
-- fuel type input
+- user will input configuration(s) from the front-end
 
-## step two
+- upon submission, configuration will be stored in the database
 
-- I've come to the realization that actually calculting the meneuvering of a real combine requires calculus.
-- For now, I will focus on coding what I know. This means I plan to make a base simulation using a grid system instead, and can improve upon it later once I get the data logging fully connected.
-- A rock is only 1ft x 1ft, but I am going to oversimplify while using the grid to make the combine skip out on the entire grid square containing the rock.
-- Each part of the grid is the size of the auger in the form of a square
-- Can use a matrix to encode passable and impassible values and to foresee obstacles requiring premature turn
+- each hour, a test will run on each configuration using Lambda function
 
-# basics
+- test result should log data to the database
+
+- on front end, user should be able to fetch the data results that are logged from tests
+
+- bonus would be analyzing data in meaningful way, especially as available data grows
+
+# basics of combine
 
 - wheel size: 60 inch
 - auger length: 8.7 feet --> 240 passes @ 5min each (auger takes up)
@@ -53,6 +53,10 @@ build out react components with static data
 - https://reactjs.org/docs/hooks-reference.html#usecontext
 - https://upmostly.com/tutorials/how-to-use-the-usecontext-hook-in-react
 - https://stackoverflow.com/questions/57840535/passing-multiple-value-and-setter-pairs-to-context-provider-in-react
+
+### Amplify
+
+- https://docs.amplify.aws/cli/start/workflows#amplify-init
 
 ### AWS Amplify Serverless GraphQL React
 

@@ -1,15 +1,20 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-cars-dev-150801-authRole",
-      "UnauthRoleArn": "arn:aws:iam::639749966934:role/amplify-cars-dev-150801-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::639749966934:role/amplify-cars-dev-150801-authRole",
-      "Region": "us-west-2",
-      "DeploymentBucketName": "amplify-cars-dev-150801-deployment",
-      "UnauthRoleName": "amplify-cars-dev-150801-unauthRole",
-      "StackName": "amplify-cars-dev-150801",
-      "StackId": "arn:aws:cloudformation:us-west-2:639749966934:stack/amplify-cars-dev-150801/5f2e3850-246a-11eb-9b5b-02e58e6a3e27",
-      "AmplifyAppId": "d2viswwzmgnlrs"
+      "AuthRoleName": "amplify-cars-dev-191316-authRole",
+      "UnauthRoleArn": "arn:aws:iam::639749966934:role/amplify-cars-dev-191316-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::639749966934:role/amplify-cars-dev-191316-authRole",
+      "Region": "ca-central-1",
+      "DeploymentBucketName": "amplify-cars-dev-191316-deployment",
+      "UnauthRoleName": "amplify-cars-dev-191316-unauthRole",
+      "StackName": "amplify-cars-dev-191316",
+      "StackId": "arn:aws:cloudformation:ca-central-1:639749966934:stack/amplify-cars-dev-191316/20d50d40-2b9f-11eb-a37b-0291f7a17924",
+      "AmplifyAppId": "d34g1ueq317toh"
+    },
+    "categories": {
+      "auth": {
+        "cars33feffeb": {}
+      }
     }
   }
 }

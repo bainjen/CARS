@@ -1,5 +1,19 @@
-type Todo @model {
+type Configuration @model {
   id: ID!
-  name: String!
-  description: String
+  wheelSize: Float!
+  augerLength: Float!
+  fuelType: String!
+  simulations: [Simulation]
+    @connection(keyName: "byConfiguration", fields: ["id"])
+}
+
+type Simulation
+  @model
+  @key(name: "byConfiguration", fields: ["configurationID"]) {
+  id: ID!
+  planeTime: Float!
+  percentagePlaned: Float!
+  cost: Float!
+  efficiency: Float!
+  configurationID: ID!
 }
