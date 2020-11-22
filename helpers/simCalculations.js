@@ -8,7 +8,7 @@ const options = {
   basePassTime: 5 * 60, //seconds
 };
 
-export const placeRandomRock = (options) => {
+const placeRandomRock = (options) => {
   const x = Math.random() * options.fieldLength;
   const y = Math.random() * options.fieldLength;
   return { x, y };
@@ -17,7 +17,7 @@ export const placeRandomRock = (options) => {
 // calculates the number of square feet the auger will miss in order to go around a rock
 // and the amount of extra square feet it moves to navigate rocks
 // assuming the combine turns at a 90 degree angle
-export const calculateRockManeuver = (augerLength, rock) => {
+const calculateRockManeuver = (augerLength, rock) => {
   const topThreshold = augerLength,
     bottomThreshold = options.fieldLength - augerLength,
     leftThreshold = augerLength,
@@ -45,7 +45,7 @@ export const calculateRockManeuver = (augerLength, rock) => {
   };
 };
 
-export const generateRocks = (numRocks) => {
+const generateRocks = (numRocks) => {
   let rocks = [];
   for (let i = 0; i < numRocks; i++) {
     rocks.push(placeRandomRock(options));
@@ -56,7 +56,7 @@ export const generateRocks = (numRocks) => {
 //3 extra square feet per rock
 //  Increase in Wheel Size by 1-inch results in weight increase by 5% but a time reduction of
 // 3%.
-export const calculatePlaneTime = (wheelSize, augerLength, rocksArr) => {
+const calculatePlaneTime = (wheelSize, augerLength, rocksArr) => {
   let rockMiss = 0;
   let rockAdd = 0;
   rocksArr.forEach((rock) => {
@@ -77,12 +77,35 @@ export const calculatePlaneTime = (wheelSize, augerLength, rocksArr) => {
   return (numPasses + extraPassProportion) * passTime;
 };
 
-export const calculateFieldPercentage = () => {};
+const calculateFieldPercentage = (augerLength, rocksArr) => {
+  const tenSqAcres = options.squareAcreFeet * 10;
+  let rockMiss = 0;
+  rocksArr.forEach((rock) => {
+    const { missedSquareFeet } = calculateRockManeuver(augerLength, rock);
+    rockMiss += missedSquareFeet;
+  });
+  return ((tenSqAcres - rockMiss) / tenSqAcres) * 100;
+};
 
-export const calculateCostPerRun = () => {};
+const calculateCostPerRun = () => {};
 
-export const calculateTotalEfficiency = () => {};
+const calculateTotalEfficiency = () => {};
 
+// custom test script
+const rocks = generateRocks(3);
+console.log(calculatePlaneTime(67, 9.7, rocks));
+console.log(calculateFieldPercentage(25.7, rocks));
+
+module.exports = {
+  options,
+  placeRandomRock,
+  calculateRockManeuver,
+  generateRocks,
+  calculateFieldPercentage,
+  calculatePlaneTime,
+  calculateCostPerRun,
+  calculateTotalEfficiency,
+};
 // Constraints and Assumptions
 // 1. A Base Combine weighs 53,000 pounds, with 60-inch wheels, and 8.7 feet wide auger,
 // making 240 passes to plane a 10-acre square field with each pass taking 5 min. The base
