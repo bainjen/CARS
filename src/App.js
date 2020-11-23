@@ -8,17 +8,20 @@ import Input from "./components/inputs/Input";
 import Output from "./components/outputs/Output";
 import { CombineProvider } from "./components/CombineContext";
 
-// const ConfigDiv = styled.div`
-//   margin: 1em;
-//   border: solid black 2px;
-//   width: 50%;
-//   display: flex;
-//   justify-content: space-around;
-//   align-items: center;
-// `;
+const InfoContainer = styled.div`
+  /* margin: 1em; */
+  /* border: solid black 2px; */
+  width: 90vh;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  justify-content: space-evenly;
+`;
 
 const AppDiv = styled.div`
-  margin: 1em;
+  margin: 1vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,8 +31,10 @@ function App() {
   return (
     <AppDiv>
       <CombineProvider>
-        <Input />
-        <Output />
+        <InfoContainer>
+          <Input />
+          <Output />
+        </InfoContainer>
       </CombineProvider>
     </AppDiv>
   );

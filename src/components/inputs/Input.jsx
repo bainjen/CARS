@@ -8,7 +8,10 @@ import { CombineContext } from "../CombineContext";
 //
 
 const InputDiv = styled.div`
-  margin: 1em;
+  /* margin: 1em; */
+  /* height: 40vh; */
+  width: 50vw;
+  font-size: 2vw;
   /* border: solid black 2px; */
   display: flex;
   flex-direction: column;
