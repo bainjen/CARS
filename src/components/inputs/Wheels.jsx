@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const WheelDiv = styled.div`
   display: flex;
-  margin: 1em;
+  margin: 0.5em;
 `;
 
 const Wheels = () => {
@@ -15,8 +15,8 @@ const Wheels = () => {
 
   return (
     <WheelDiv>
-      <p>wheel size:</p>
-      <p>{wheelSize} inches</p>
+      <p>wheel size: {wheelSize} inches</p>
+      {/* <p>{wheelSize} inches</p> */}
       <button onClick={increaseWheels}>+</button>
       <button onClick={decreaseWheels}>-</button>
     </WheelDiv>

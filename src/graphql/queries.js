@@ -48,6 +48,7 @@ export const listConfigurations = /* GraphQL */ `
     }
   }
 `;
+
 export const getSimulation = /* GraphQL */ `
   query GetSimulation($id: ID!) {
     getSimulation(id: $id) {

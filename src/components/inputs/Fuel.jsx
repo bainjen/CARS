@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const FuelDiv = styled.div`
   display: flex;
-  margin: 1em;
+  margin: 0.5em;
 `;
 
 const FuelButton = styled.button`

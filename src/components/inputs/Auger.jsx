@@ -8,7 +8,8 @@ import styled from "styled-components";
 
 const AugerDiv = styled.div`
   display: flex;
-  margin: 1em;
+  margin: 0.5em;
+  /* justify-content: flex-start; */
 `;
 
 const Auger = () => {
@@ -17,8 +18,8 @@ const Auger = () => {
 
   return (
     <AugerDiv>
-      <p>auger length:</p>
-      <span>{augerLength} feet</span>
+      <p>auger length: {augerLength} feet</p>
+      {/* <span>{augerLength} feet</span> */}
       <button onClick={increaseLength}>+</button>
       <button onClick={decreaseLength}>-</button>
     </AugerDiv>

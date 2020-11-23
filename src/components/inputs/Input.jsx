@@ -5,9 +5,14 @@ import Wheels from "./Wheels";
 import styled from "styled-components";
 import { CombineContext } from "../CombineContext";
 
+//
+
 const InputDiv = styled.div`
-  /* display: flex; */
-  /* margin: 1em; */
+  margin: 1em;
+  /* border: solid black 2px; */
+  display: flex;
+  flex-direction: column;
+  /* width: 50%; */
 `;
 
 const Input = () => {
@@ -15,12 +20,15 @@ const Input = () => {
   const { addConfiguration, configurations } = configurationState;
   console.log(configurationState);
   return (
-    <InputDiv>
-      <Auger />
-      <Fuel />
-      <Wheels />
-      <button onClick={addConfiguration}>add</button>
-    </InputDiv>
+    <div>
+      <h2>Create New Combine Configuration</h2>
+      <InputDiv>
+        <Auger />
+        <Fuel />
+        <Wheels />
+        <button onClick={addConfiguration}>add</button>
+      </InputDiv>
+    </div>
   );
 };
 
