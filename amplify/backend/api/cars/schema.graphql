@@ -3,6 +3,7 @@ type Configuration @model {
   wheelSize: Float!
   augerLength: Float!
   fuelType: String!
+  runNum: Int
   simulations: [Simulation]
     @connection(keyName: "byConfiguration", fields: ["id"])
 }

@@ -12,22 +12,6 @@ import styled from "styled-components";
 //   overflow-y: auto;
 //   text-align:justify;
 // }
-
-const ConfigDiv = styled.div`
-  margin: 1em;
-  /* border: solid black 2px; */
-  /* width: 50%; */
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-`;
-
-const ContainerDiv = styled.div`
-  height: 30vh;
-  width: 50vw;
-  margin: 1em;
-`;
-
 const ScrollDiv = styled.div`
   background-color: #b8ebb8;
   height: 30vh;
@@ -36,6 +20,24 @@ const ScrollDiv = styled.div`
   overflow-y: auto;
   text-align: justify;
   font-size: 1.25vw;
+`;
+
+const ConfigDiv = styled.div`
+  margin: 1em;
+  /* border: solid black 2px; */
+  /* width: 50%; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  & p {
+    color: red;
+  }
+`;
+
+const ContainerDiv = styled.div`
+  height: 30vh;
+  width: 50vw;
+  margin: 1em;
 `;
 
 const Output = () => {

@@ -25,6 +25,7 @@ export const createConfiguration = /* GraphQL */ `
       wheelSize
       augerLength
       fuelType
+      runNum
       simulations {
         items {
           id
@@ -53,6 +54,7 @@ export const updateConfiguration = /* GraphQL */ `
       wheelSize
       augerLength
       fuelType
+      runNum
       simulations {
         items {
           id
@@ -81,6 +83,7 @@ export const deleteConfiguration = /* GraphQL */ `
       wheelSize
       augerLength
       fuelType
+      runNum
       simulations {
         items {
           id

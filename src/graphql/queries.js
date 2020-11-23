@@ -8,6 +8,7 @@ export const getConfiguration = /* GraphQL */ `
       wheelSize
       augerLength
       fuelType
+      runNum
       simulations {
         items {
           id
@@ -38,6 +39,7 @@ export const listConfigurations = /* GraphQL */ `
         wheelSize
         augerLength
         fuelType
+        runNum
         simulations {
           nextToken
         }
@@ -48,7 +50,6 @@ export const listConfigurations = /* GraphQL */ `
     }
   }
 `;
-
 export const getSimulation = /* GraphQL */ `
   query GetSimulation($id: ID!) {
     getSimulation(id: $id) {
