@@ -63,6 +63,8 @@ const createSimulation = gql`
 // "CloudWatchRule": "rate(1 hour)" in parameters.json to run once per hour
 
 exports.handler = async (event) => {
+  // getting the configuration data from DynamoDB
+  let configurationData;
   const rocks = generateRocks(3);
   try {
     const graphqlData = await axios({
@@ -75,20 +77,60 @@ exports.handler = async (event) => {
         query: print(listConfigurations),
       },
     });
-    const body = {
-      graphqlData: graphqlData.data.data.listConfigurations,
-    };
-    const data = graphqlData.data.data.listConfigurations.items;
-    console.log(data);
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify(body),
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-      },
-    };
+    configurationData = graphqlData.data.data.listConfigurations.items;
   } catch (err) {
-    console.log("error posting to appsync: ", err);
+    console.log("error fetching combine configuration data ", err);
+  }
+
+  // putting new data into simulations in DynamoDB
+  try {
+    for (const row of configurationData) {
+      const graphqlData = await axios({
+        url: process.env.GRAPHQL_ENDPOINT,
+        method: "post",
+        headers: {
+          "x-api-key": process.env.GRAPHQL_API_KEY,
+        },
+        data: {
+          query: print(createSimulation),
+          variables: {
+            input: {
+              configurationID: row.id,
+              planeTime: calculatePlaneTime(
+                row.wheelSize,
+                row.augerLength,
+                rocks
+              ),
+              percentagePlaned: calculateFieldPercentage(
+                row.augerLength,
+                rocks
+              ),
+              cost: calculateCostPerRun(
+                row.fuelType,
+                row.runNum,
+                row.wheelSize,
+                row.augerLength
+              ),
+              efficiency: calculateEfficiencyPerRun(
+                row.wheelSize,
+                row.augerLength,
+                rocks,
+                row.fuelType,
+                row.runNum
+              ),
+            },
+            input1: {
+              id: row.id,
+              runNum: row.runNum + 1,
+            },
+          },
+        },
+      });
+
+      console.log("inserted row");
+    }
+  } catch (err) {
+    console.log("error writing data to simulation table ", err);
   }
 };

@@ -171,3 +171,25 @@ interview will be expected to explain their solution.
 
 The Test submission is due November 25, 2020. Once Completed, upload the repository onto
 GitHub and send the repository link to: ahmed@atgpharma.com
+
+query MyQuery {
+listConfigurations {
+items {
+id
+runNum
+augerLength
+createdAt
+fuelType
+simulations {
+items {
+configurationID
+cost
+createdAt
+efficiency
+id
+percentagePlaned
+}
+}
+}
+}
+}
