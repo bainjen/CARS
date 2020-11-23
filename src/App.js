@@ -4,8 +4,8 @@ import useConfigData from "./hooks/useConfigData";
 // import Field from "./components/Field";
 // import Auger from "./components/inputs/Auger";
 // import Fuel from "./components/inputs/Fuel";
-// import Input from "./components/inputs/Input";
-// import { CombineProvider } from "./components/CombineContext";
+import Input from "./components/inputs/Input";
+import { CombineProvider } from "./components/CombineContext";
 
 const InputDiv = styled.div`
   margin: 1em;
@@ -32,40 +32,29 @@ const AppDiv = styled.div`
 `;
 
 function App() {
-  const {
-    formState,
-    configurations,
-    setInput,
-    addConfiguration,
-  } = useConfigData();
-
   return (
     <AppDiv>
       <h2>Create New Combine Configuration</h2>
-      <InputDiv>
-        {/* <Auger /> */}
+      {/* <InputDiv>
         <input
           onChange={(event) => setInput("wheelSize", event.target.value)}
-          // style={styles.input}
           value={formState.wheelSize}
           placeholder="wheel size"
         />
         <input
           onChange={(event) => setInput("augerLength", event.target.value)}
-          // style={styles.input}
           value={formState.augerLength}
           placeholder="auger length"
         />
         <input
           onChange={(event) => setInput("fuelType", event.target.value)}
-          // style={styles.input}
           value={formState.fuelType}
           placeholder="fuelType"
         />
         <button onClick={addConfiguration}>Add</button>
-      </InputDiv>
+      </InputDiv> */}
 
-      <h2>My Combines:</h2>
+      {/* <h2>My Combines:</h2>
       {configurations.map((configuration, index) => (
         <ConfigDiv key={configuration.id ? configuration.id : index}>
           <p>Wheel Size: {configuration.wheelSize} </p>
@@ -73,13 +62,11 @@ function App() {
           <p>Auger Length: {configuration.augerLength} </p>
           <span> | </span>
           <p>Fuel Type: {configuration.fuelType}</p>
-          {/* <button>show data</button> */}
         </ConfigDiv>
-      ))}
-      {/* <CombineProvider>
+      ))} */}
+      <CombineProvider>
         <Input />
-        <Field />
-      </CombineProvider> */}
+      </CombineProvider>
     </AppDiv>
   );
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import useCombineParams from "./useCombineParams";
 import Amplify, { API, graphqlOperation } from "aws-amplify";
 import { createConfiguration } from "../graphql/mutations";
 import { listConfigurations } from "../graphql/queries";
@@ -6,19 +7,30 @@ import { listConfigurations } from "../graphql/queries";
 import awsExports from "../aws-exports";
 Amplify.configure(awsExports);
 
-const initialState = { wheelSize: "", augerLength: "", fuelType: "" };
+// const initialState = { wheelSize: "", augerLength: "", fuelType: "" };
 
 const useConfigData = () => {
-  const [formState, setFormState] = useState(initialState);
+  const {
+    augerLength,
+    fuelType,
+    wheelSize,
+    setFuelType,
+    resetParams,
+    increaseLength,
+    decreaseLength,
+    increaseWheels,
+    decreaseWheels,
+  } = useCombineParams();
+  // const [formState, setFormState] = useState(initialState);
   const [configurations, setConfigurations] = useState([]);
 
   useEffect(() => {
     fetchConfigurations();
   }, []);
 
-  function setInput(key, value) {
-    setFormState({ ...formState, [key]: value });
-  }
+  // function setInput(key, value) {
+  //   setFormState({ ...formState, [key]: value });
+  // }
 
   async function fetchConfigurations() {
     try {
@@ -34,11 +46,13 @@ const useConfigData = () => {
 
   async function addConfiguration() {
     try {
-      if (!formState.wheelSize || !formState.augerLength || !formState.fuelType)
-        return;
-      const configuration = { ...formState };
+      // if (!formState.wheelSize || !formState.augerLength || !formState.fuelType)
+      //   return;
+      const configuration = { augerLength, fuelType, wheelSize };
+      console.log(configuration);
       setConfigurations([...configurations, configuration]);
-      setFormState(initialState);
+      resetParams();
+      // setFormState(initialState);
       await API.graphql(
         graphqlOperation(createConfiguration, { input: configuration })
       );
@@ -47,7 +61,19 @@ const useConfigData = () => {
     }
   }
 
-  return { formState, configurations, setInput, addConfiguration };
+  return {
+    configurations,
+    addConfiguration,
+    augerLength,
+    fuelType,
+    wheelSize,
+    setFuelType,
+    resetParams,
+    increaseLength,
+    decreaseLength,
+    increaseWheels,
+    decreaseWheels,
+  };
 };
 
 export default useConfigData;

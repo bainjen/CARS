@@ -13,12 +13,12 @@ const AugerDiv = styled.div`
 
 const Auger = () => {
   const { lengthState } = useContext(CombineContext);
-  const { length, increaseLength, decreaseLength } = lengthState;
+  const { augerLength, increaseLength, decreaseLength } = lengthState;
 
   return (
     <AugerDiv>
       <p>auger length:</p>
-      <span>{length} feet</span>
+      <span>{augerLength} feet</span>
       <button onClick={increaseLength}>+</button>
       <button onClick={decreaseLength}>-</button>
     </AugerDiv>

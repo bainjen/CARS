@@ -11,15 +11,15 @@ const InputDiv = styled.div`
 `;
 
 const Input = () => {
-  const { combinePositionState } = useContext(CombineContext);
-  const { setStartSimulation } = combinePositionState;
-
+  const { configurationState } = useContext(CombineContext);
+  const { addConfiguration, configurations } = configurationState;
+  console.log(configurationState);
   return (
     <InputDiv>
-      <button onClick={() => setStartSimulation(true)}>start</button>
       <Auger />
       <Fuel />
       <Wheels />
+      <button onClick={addConfiguration}>add</button>
     </InputDiv>
   );
 };
