@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { CombineContext } from "../CombineContext";
 import styled from "styled-components";
+import ConfigSimulations from "./ConfigSimulations";
 
 // div.scroll {
 //   margin:4px, 4px;
@@ -45,6 +46,7 @@ const Output = () => {
   const { configurations } = configurationState;
   return (
     <ContainerDiv>
+      <ConfigSimulations></ConfigSimulations>
       <h2>My Combines:</h2>
       <ScrollDiv>
         {configurations.map((configuration, index) => (

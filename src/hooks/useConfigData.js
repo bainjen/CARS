@@ -39,7 +39,9 @@ const useConfigData = () => {
       const simulationData = await API.graphql(
         graphqlOperation(listSimulations)
       );
+
       const simulations = simulationData.data.listSimulations.items;
+      simulations.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
       setSimulations(simulations);
     } catch (err) {
       console.log("error fetching simulations");
