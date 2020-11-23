@@ -14,6 +14,7 @@ code {
 
 p,
 span,
-button {
-  margin: 0.3em;
+button,
+input {
+  margin: 0.5em;
 }
