@@ -1,18 +1,11 @@
-import React, { useEffect, useState } from "react";
-import Amplify, { API, graphqlOperation } from "aws-amplify";
+import React from "react";
 import styled from "styled-components";
-import { createConfiguration } from "./graphql/mutations";
-import { listConfigurations } from "./graphql/queries";
+import useConfigData from "./hooks/useConfigData";
 // import Field from "./components/Field";
-import Auger from "./components/inputs/Auger";
+// import Auger from "./components/inputs/Auger";
 // import Fuel from "./components/inputs/Fuel";
 // import Input from "./components/inputs/Input";
 // import { CombineProvider } from "./components/CombineContext";
-
-import awsExports from "./aws-exports";
-Amplify.configure(awsExports);
-
-const initialState = { wheelSize: "", augerLength: "", fuelType: "" };
 
 const InputDiv = styled.div`
   margin: 1em;
@@ -39,43 +32,12 @@ const AppDiv = styled.div`
 `;
 
 function App() {
-  const [formState, setFormState] = useState(initialState);
-  const [configurations, setConfigurations] = useState([]);
-
-  useEffect(() => {
-    fetchConfigurations();
-  }, []);
-
-  function setInput(key, value) {
-    setFormState({ ...formState, [key]: value });
-  }
-
-  async function fetchConfigurations() {
-    try {
-      const configurationData = await API.graphql(
-        graphqlOperation(listConfigurations)
-      );
-      const configurations = configurationData.data.listConfigurations.items;
-      setConfigurations(configurations);
-    } catch (err) {
-      console.log("error fetching configurations");
-    }
-  }
-
-  async function addConfiguration() {
-    try {
-      if (!formState.wheelSize || !formState.augerLength || !formState.fuelType)
-        return;
-      const configuration = { ...formState };
-      setConfigurations([...configurations, configuration]);
-      setFormState(initialState);
-      await API.graphql(
-        graphqlOperation(createConfiguration, { input: configuration })
-      );
-    } catch (err) {
-      console.log("error creating configuration:", err);
-    }
-  }
+  const {
+    formState,
+    configurations,
+    setInput,
+    addConfiguration,
+  } = useConfigData();
 
   return (
     <AppDiv>
