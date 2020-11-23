@@ -6,6 +6,7 @@ const CombineProvider = (props) => {
   const {
     // formState,
     configurations,
+    simulations,
     addConfiguration,
     augerLength,
     fuelType,
@@ -24,6 +25,7 @@ const CombineProvider = (props) => {
         fuelState: { fuelType, setFuelType },
         wheelState: { wheelSize, increaseWheels, decreaseWheels },
         configurationState: { configurations, addConfiguration },
+        simulationState: { simulations },
       }}
     >
       {props.children}

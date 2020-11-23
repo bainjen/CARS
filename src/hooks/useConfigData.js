@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import useCombineParams from "./useCombineParams";
 import Amplify, { API, graphqlOperation } from "aws-amplify";
 import { createConfiguration } from "../graphql/mutations";
-import { listConfigurations } from "../graphql/queries";
+import { listConfigurations, listSimulations } from "../graphql/queries";
 
 import awsExports from "../aws-exports";
 Amplify.configure(awsExports);
@@ -23,14 +23,28 @@ const useConfigData = () => {
   } = useCombineParams();
   // const [formState, setFormState] = useState(initialState);
   const [configurations, setConfigurations] = useState([]);
+  const [simulations, setSimulations] = useState([]);
 
   useEffect(() => {
     fetchConfigurations();
+    fetchSimulations();
   }, []);
 
-  // function setInput(key, value) {
-  //   setFormState({ ...formState, [key]: value });
-  // }
+  // fetch simulations
+  // update state variable that holds simulation array (need to create)
+  // filter by id and sort by createdAt in component
+  console.log("simulations", simulations);
+  async function fetchSimulations() {
+    try {
+      const simulationData = await API.graphql(
+        graphqlOperation(listSimulations)
+      );
+      const simulations = simulationData.data.listSimulations.items;
+      setSimulations(simulations);
+    } catch (err) {
+      console.log("error fetching simulations");
+    }
+  }
 
   async function fetchConfigurations() {
     try {
@@ -63,6 +77,7 @@ const useConfigData = () => {
 
   return {
     configurations,
+    simulations,
     addConfiguration,
     augerLength,
     fuelType,
