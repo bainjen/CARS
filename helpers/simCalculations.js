@@ -5,6 +5,7 @@ const options = {
   baseWheels: 60,
   baseAuger: 8.7,
   baseFuel: "diesel",
+  baseFuelCost: 350,
   basePassTime: 5 * 60, //seconds
 };
 
@@ -52,10 +53,8 @@ const generateRocks = (numRocks) => {
   }
   return rocks;
 };
-//default num of passes 239.78675513389058
-//3 extra square feet per rock
-//  Increase in Wheel Size by 1-inch results in weight increase by 5% but a time reduction of
-// 3%.
+// default num of passes 239.78675513389058 // 3 extra square feet per rock
+// Increase in Wheel Size by 1-inch results in weight increase by 5% but a time reduction of 3%
 const calculatePlaneTime = (wheelSize, augerLength, rocksArr) => {
   let rockMiss = 0;
   let rockAdd = 0;
@@ -87,14 +86,56 @@ const calculateFieldPercentage = (augerLength, rocksArr) => {
   return ((tenSqAcres - rockMiss) / tenSqAcres) * 100;
 };
 
-const calculateCostPerRun = () => {};
+// Increase in Wheel Size by 1-inch results in weight increase by 5%
+// auger length 1 increment increase results in weight increase by 8%.
+const totalCombineWeight = (wheelSize, augerLength) => {
+  const augerDiff = augerLength - options.baseAuger;
+  const wheelDiff = wheelSize - options.baseWheels;
+  const increasePercent = augerDiff * 0.08 + wheelDiff * 0.05;
+  // returns weight in lbs
+  return options.baseWeight * increasePercent + options.baseWeight;
+};
 
-const calculateTotalEfficiency = () => {};
+const calculateCostPerRun = (fuelType, runNum, wheelSize, augerLength) => {
+  const combineWeight = totalCombineWeight(wheelSize, augerLength);
+
+  const weightIncreasePercent =
+    (combineWeight - options.baseWeight) / options.baseWeight;
+
+  let cost =
+    options.baseFuelCost + options.baseFuelCost * weightIncreasePercent;
+
+  if (fuelType !== options.baseFuel) {
+    const percentage = 0.25;
+    const adjustedCost = cost + cost * percentage;
+    cost = adjustedCost - adjustedCost * 0.005 * (runNum - 1);
+  }
+  return cost;
+};
+
+// calculates efficiency per run -- can calculate average efficiency on front end
+const calculateEfficiencyPerRun = (
+  wheelSize,
+  augerLength,
+  rocksArr,
+  fuelType,
+  runNum
+) => {
+  const timeTakenMins =
+    calculatePlaneTime(wheelSize, augerLength, rocksArr) / 60;
+  const percentFieldChosen = calculateFieldPercentage(augerLength, rocksArr);
+  const runCost = calculateCostPerRun(fuelType, runNum, wheelSize, augerLength);
+  const e = 600 / timeTakenMins + percentFieldChosen + runCost / 350;
+  return e;
+};
 
 // custom test script
-const rocks = generateRocks(3);
-console.log(calculatePlaneTime(67, 9.7, rocks));
-console.log(calculateFieldPercentage(25.7, rocks));
+// const rocks = generateRocks(3);
+// console.log(calculatePlaneTime(67, 9.7, rocks));
+// console.log(calculateFieldPercentage(25.7, rocks));
+// console.log(totalCombineWeight(61, 8.7));
+// console.log(calculateCostPerRun("electric", 2, 60, 8.7));
+// console.log(calculateEfficiencyPerRun(69, 9.7, rocks, "diesel", 1000));
 
 module.exports = {
   options,
@@ -103,22 +144,7 @@ module.exports = {
   generateRocks,
   calculateFieldPercentage,
   calculatePlaneTime,
+  totalCombineWeight,
   calculateCostPerRun,
-  calculateTotalEfficiency,
+  calculateEfficiencyPerRun,
 };
-// Constraints and Assumptions
-// 1. A Base Combine weighs 53,000 pounds, with 60-inch wheels, and 8.7 feet wide auger,
-// making 240 passes to plane a 10-acre square field with each pass taking 5 min. The base
-// fuel type is Diesel with a fuel consumption per 10 acres of 20 gallons. Costing $350 per
-// 10 acres.
-// 2. Increase in Wheel Size by 1-inch results in weight increase by 5% but a time reduction of
-// 3%.
-// 3. Electric Combines are more costly per 10 acres by 25% at the start but with each run
-// reducing cost by 0.5 % consistently. Diesel is a fixed cost. Regardless of fuel type the
-// cost per 10 acres is a factor of weight with a linear relationship.
-// 4. Auger length can be altered from the base unit by 1 foot increments up to a maximum
-// auger length of 25.7 feet. 1 increment increase results in weight increase by 8%.
-// 5. 3 obstacles [ 1ft x 1ft rock ] are to be placed randomly on the field per run and the
-// combines must transverse around them. The point of this exercise is calculating the
-// most efficient path to plane the field with least amount of time.
-// 6. Make and state any other reasonable assumptions made for this project
