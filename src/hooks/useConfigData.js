@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
 import useCombineParams from "./useCombineParams";
 import Amplify, { API, graphqlOperation } from "aws-amplify";
-import {
-  createConfiguration,
-  deleteConfiguration,
-  deleteSimulation,
-} from "../graphql/mutations";
+import { createConfiguration, deleteConfiguration } from "../graphql/mutations";
 import { listConfigurations, listSimulations } from "../graphql/queries";
 
 import awsExports from "../aws-exports";
@@ -68,11 +64,12 @@ const useConfigData = () => {
     try {
       const configuration = { augerLength, fuelType, wheelSize, runNum: 1 };
       console.log(configuration);
-      setConfigurations([...configurations, configuration]);
+      // setConfigurations([...configurations, configuration]);
       resetParams();
       await API.graphql(
         graphqlOperation(createConfiguration, { input: configuration })
       );
+      fetchConfigurations();
     } catch (err) {
       console.log("error creating configuration:", err);
     }
@@ -93,6 +90,7 @@ const useConfigData = () => {
     configurations,
     simulations,
     addConfiguration,
+    fetchConfigurations,
     deleteConfigurationByID,
     augerLength,
     fuelType,
