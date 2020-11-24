@@ -66,7 +66,7 @@ const useConfigData = () => {
 
   async function addConfiguration() {
     try {
-      const configuration = { augerLength, fuelType, wheelSize };
+      const configuration = { augerLength, fuelType, wheelSize, runNum: 1 };
       console.log(configuration);
       setConfigurations([...configurations, configuration]);
       resetParams();

@@ -16,6 +16,10 @@ const InputDiv = styled.div`
   display: flex;
   flex-direction: column;
   /* width: 50%; */
+  & p {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+  }
 `;
 
 const Input = () => {

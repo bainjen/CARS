@@ -30,6 +30,10 @@ function App() {
       <Helmet>
         <meta charSet="utf-8" />
         <title>Auger Wizard</title>
+        <link
+          href="https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300"
+          rel="stylesheet"
+        ></link>
       </Helmet>
       <CombineProvider>
         <InfoContainer>

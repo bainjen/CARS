@@ -5,7 +5,7 @@ import ConfigSimulations from "./ConfigSimulations";
 
 const ScrollDiv = styled.div`
   background-color: #b8ebb8;
-  height: 30vh;
+  height: 50vh;
   width: 50vw;
   overflow-x: hidden;
   overflow-y: auto;
@@ -21,12 +21,12 @@ const ConfigDiv = styled.div`
   justify-content: space-around;
   align-items: center;
   & p {
-    color: red;
+    /* color: red; */
   }
 `;
 
 const ContainerDiv = styled.div`
-  height: 30vh;
+  height: 50vh;
   width: 50vw;
   margin: 1em;
 `;
@@ -36,6 +36,26 @@ const Output = () => {
   const { configurations, deleteConfigurationByID } = configurationState;
   const [chosenConfiguration, setChoseConfiguration] = useState();
 
+  const tableData = configurations.map((configuration, index) => {
+    return (
+      <tr key={index}>
+        <td>{`${configuration.wheelSize}"`}</td>
+        <td>{`${configuration.augerLength}'`}</td>
+        <td>{configuration.fuelType}</td>
+        <td>
+          <button onClick={() => deleteConfigurationByID(configuration.id)}>
+            delete
+          </button>
+        </td>
+        <td>
+          <button onClick={() => setChoseConfiguration(configuration.id)}>
+            fetch data
+          </button>
+        </td>
+      </tr>
+    );
+  });
+
   return (
     <ContainerDiv>
       <ConfigSimulations
@@ -43,7 +63,19 @@ const Output = () => {
       ></ConfigSimulations>
       <h2>My Combines:</h2>
       <ScrollDiv>
-        {configurations.map((configuration, index) => (
+        <table cellSpacing={0} cellPadding={10}>
+          <thead>
+            <tr>
+              <th>Wheel Size</th>
+              <th>Auger Length</th>
+              <th>Fuel </th>
+              <th>Delete</th>
+              <th>Fetch Data</th>
+            </tr>
+          </thead>
+          <tbody>{tableData}</tbody>
+        </table>
+        {/* {configurations.map((configuration, index) => (
           <ConfigDiv key={configuration.id ? configuration.id : index}>
             <p>Wheel Size: {`${configuration.wheelSize}"`} </p>
 
@@ -57,7 +89,7 @@ const Output = () => {
               fetch data
             </button>
           </ConfigDiv>
-        ))}
+        ))} */}
       </ScrollDiv>
     </ContainerDiv>
   );

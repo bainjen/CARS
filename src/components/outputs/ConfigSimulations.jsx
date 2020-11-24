@@ -72,7 +72,9 @@ const ConfigSimulations = (props) => {
   );
   return (
     <div>
-      {configurationID && <h1>{chosenConfiguration.wheelSize}</h1>}
+      {configurationID && (
+        <h2>{`This combine has ${chosenConfiguration.wheelSize}" wheels, a ${chosenConfiguration.augerLength}' foot auger, and runs on ${chosenConfiguration.fuelType} 👍`}</h2>
+      )}
       {filteredSims.length > 0 ? (
         table
       ) : (
