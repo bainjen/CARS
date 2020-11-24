@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import useConfigData from "../hooks/useConfigData";
+import useVisualMode from "../hooks/useVisualMode";
 const CombineContext = React.createContext();
 
 const CombineProvider = (props) => {
   const {
-    // formState,
     configurations,
     simulations,
     addConfiguration,
@@ -19,6 +19,12 @@ const CombineProvider = (props) => {
     decreaseWheels,
   } = useConfigData();
 
+  const { mode, transition, back } = useVisualMode("CONFIG");
+
+  const [chosenConfiguration, setChosenConfiguration] = useState();
+
+  console.log(chosenConfiguration);
+
   return (
     <CombineContext.Provider
       value={{
@@ -29,8 +35,11 @@ const CombineProvider = (props) => {
           configurations,
           addConfiguration,
           deleteConfigurationByID,
+          chosenConfiguration,
+          setChosenConfiguration,
         },
         simulationState: { simulations },
+        visualState: { mode, transition, back },
       }}
     >
       {props.children}

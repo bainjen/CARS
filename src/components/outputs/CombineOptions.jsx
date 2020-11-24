@@ -41,11 +41,18 @@ const ContainerDiv = styled.div`
   width: 50vw;
   margin: 1em;
 `;
+const CONFIRM = "CONFIRM";
 
 const CombineOptions = (props) => {
-  const { setChoseConfiguration } = props;
-  const { configurationState } = useContext(CombineContext);
-  const { configurations, deleteConfigurationByID } = configurationState;
+  const { chooseConfiguration } = props;
+  const { configurationState, visualState } = useContext(CombineContext);
+  const { configurations, setChosenConfiguration } = configurationState;
+  const { transition, back } = visualState;
+
+  const confirmDelete = (id) => {
+    transition(CONFIRM, false);
+    setChosenConfiguration(id);
+  };
 
   const tableData = configurations.map((configuration, index) => {
     return (
@@ -55,20 +62,15 @@ const CombineOptions = (props) => {
         <td>{configuration.fuelType}</td>
         <td>
           <FontAwesomeIcon
-            onClick={() => deleteConfigurationByID(configuration.id)}
+            onClick={() => confirmDelete(configuration.id)}
             icon={faTrash}
           />
-          {/* <button onClick={() => deleteConfigurationByID(configuration.id)}>
-            delete
-          </button> */}
         </td>
         <td>
-          {/* <p onClick={() => setChoseConfiguration(configuration.id)}> */}
           <FontAwesomeIcon
-            onClick={() => setChoseConfiguration(configuration.id)}
+            onClick={() => chooseConfiguration(configuration.id)}
             icon={faChevronCircleRight}
           />
-          {/* </p> */}
         </td>
       </BodyRow>
     );
@@ -77,7 +79,6 @@ const CombineOptions = (props) => {
   return (
     <ContainerDiv>
       <h2>My Combines:</h2>
-      {/* <ScrollDiv> */}
       <ConfigTable cellSpacing={0} cellPadding={10}>
         <thead>
           <tr>

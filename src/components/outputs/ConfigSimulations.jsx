@@ -6,9 +6,12 @@ import { mean } from "lodash";
 
 const ConfigSimulations = (props) => {
   const { configurationID } = props;
-  const { configurationState, simulationState } = useContext(CombineContext);
+  const { configurationState, simulationState, visualState } = useContext(
+    CombineContext
+  );
   const { configurations } = configurationState;
   const { simulations } = simulationState;
+  const { mode, back, transition } = visualState;
 
   const chosenConfiguration = configurations.find(
     (config) => config.id === configurationID
@@ -17,7 +20,7 @@ const ConfigSimulations = (props) => {
   const filteredSims = simulations.filter(
     (sim) => sim.configurationID === configurationID
   );
-  // simulations.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+
   const formatTime = (numSeconds) => {
     return moment
       .utc(moment.duration(numSeconds, "seconds").asMilliseconds())
@@ -80,6 +83,7 @@ const ConfigSimulations = (props) => {
       ) : (
         <p>No simulations run for this configuration yet</p>
       )}
+      <button onClick={back}>back</button>
     </div>
   );
 };
