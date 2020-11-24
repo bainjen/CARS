@@ -3,16 +3,6 @@ import { CombineContext } from "../CombineContext";
 import styled from "styled-components";
 import ConfigSimulations from "./ConfigSimulations";
 
-// div.scroll {
-//   margin:4px, 4px;
-//   padding:4px;
-//   background-color: green;
-//   width: 500px;
-//   height: 110px;
-//   overflow-x: hidden;
-//   overflow-y: auto;
-//   text-align:justify;
-// }
 const ScrollDiv = styled.div`
   background-color: #b8ebb8;
   height: 30vh;
@@ -59,6 +49,7 @@ const Output = () => {
             <button onClick={() => deleteConfigurationByID(configuration.id)}>
               delete
             </button>
+            <button>fetch data</button>
           </ConfigDiv>
         ))}
       </ScrollDiv>
