@@ -83,9 +83,6 @@ const useConfigData = () => {
       await API.graphql(
         graphqlOperation(deleteConfiguration, { input: { id: id } })
       );
-      await API.graphql(
-        graphqlOperation(deleteSimulation, { input: { configurationID: id } })
-      );
       fetchConfigurations();
     } catch (err) {
       console.log("error deleting configuration:", err);

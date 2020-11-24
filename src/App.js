@@ -9,7 +9,7 @@ const InfoContainer = styled.div`
   /* margin: 1em; */
   /* border: solid black 2px; */
   width: 90vh;
-  height: 90vh;
+  /* height: 90vh; */
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
