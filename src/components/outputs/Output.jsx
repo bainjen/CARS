@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CombineContext } from "../CombineContext";
 import styled from "styled-components";
 import ConfigSimulations from "./ConfigSimulations";
@@ -34,22 +34,28 @@ const ContainerDiv = styled.div`
 const Output = () => {
   const { configurationState } = useContext(CombineContext);
   const { configurations, deleteConfigurationByID } = configurationState;
+  const [chosenConfiguration, setChoseConfiguration] = useState();
+
   return (
     <ContainerDiv>
-      <ConfigSimulations></ConfigSimulations>
+      <ConfigSimulations
+        configurationID={chosenConfiguration}
+      ></ConfigSimulations>
       <h2>My Combines:</h2>
       <ScrollDiv>
         {configurations.map((configuration, index) => (
           <ConfigDiv key={configuration.id ? configuration.id : index}>
-            <p>Wheel Size: {configuration.wheelSize} </p>
-            <span> | </span>
-            <p>Auger Length: {configuration.augerLength} </p>
-            <span> | </span>
+            <p>Wheel Size: {`${configuration.wheelSize}"`} </p>
+
+            <p>Auger Length: {`${configuration.augerLength}'`} </p>
+
             <p>Fuel Type: {configuration.fuelType}</p>
             <button onClick={() => deleteConfigurationByID(configuration.id)}>
               delete
             </button>
-            <button>fetch data</button>
+            <button onClick={() => setChoseConfiguration(configuration.id)}>
+              fetch data
+            </button>
           </ConfigDiv>
         ))}
       </ScrollDiv>
