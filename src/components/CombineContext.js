@@ -8,6 +8,7 @@ const CombineProvider = (props) => {
     configurations,
     simulations,
     addConfiguration,
+    deleteConfigurationByID,
     augerLength,
     fuelType,
     wheelSize,
@@ -24,7 +25,11 @@ const CombineProvider = (props) => {
         lengthState: { augerLength, increaseLength, decreaseLength },
         fuelState: { fuelType, setFuelType },
         wheelState: { wheelSize, increaseWheels, decreaseWheels },
-        configurationState: { configurations, addConfiguration },
+        configurationState: {
+          configurations,
+          addConfiguration,
+          deleteConfigurationByID,
+        },
         simulationState: { simulations },
       }}
     >

@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import useCombineParams from "./useCombineParams";
 import Amplify, { API, graphqlOperation } from "aws-amplify";
-import { createConfiguration } from "../graphql/mutations";
+import {
+  createConfiguration,
+  deleteConfiguration,
+  deleteSimulation,
+} from "../graphql/mutations";
 import { listConfigurations, listSimulations } from "../graphql/queries";
 
 import awsExports from "../aws-exports";
@@ -62,13 +66,10 @@ const useConfigData = () => {
 
   async function addConfiguration() {
     try {
-      // if (!formState.wheelSize || !formState.augerLength || !formState.fuelType)
-      //   return;
       const configuration = { augerLength, fuelType, wheelSize };
       console.log(configuration);
       setConfigurations([...configurations, configuration]);
       resetParams();
-      // setFormState(initialState);
       await API.graphql(
         graphqlOperation(createConfiguration, { input: configuration })
       );
@@ -77,10 +78,25 @@ const useConfigData = () => {
     }
   }
 
+  async function deleteConfigurationByID(id) {
+    try {
+      await API.graphql(
+        graphqlOperation(deleteConfiguration, { input: { id: id } })
+      );
+      await API.graphql(
+        graphqlOperation(deleteSimulation, { input: { configurationID: id } })
+      );
+      fetchConfigurations();
+    } catch (err) {
+      console.log("error deleting configuration:", err);
+    }
+  }
+
   return {
     configurations,
     simulations,
     addConfiguration,
+    deleteConfigurationByID,
     augerLength,
     fuelType,
     wheelSize,

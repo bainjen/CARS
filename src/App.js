@@ -1,9 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-// import useConfigData from "./hooks/useConfigData";
-// import Field from "./components/Field";
-// import Auger from "./components/inputs/Auger";
-// import Fuel from "./components/inputs/Fuel";
+import { Helmet } from "react-helmet";
 import Input from "./components/inputs/Input";
 import Output from "./components/outputs/Output";
 import { CombineProvider } from "./components/CombineContext";
@@ -30,6 +27,10 @@ const AppDiv = styled.div`
 function App() {
   return (
     <AppDiv>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Auger Wizard</title>
+      </Helmet>
       <CombineProvider>
         <InfoContainer>
           <Input />

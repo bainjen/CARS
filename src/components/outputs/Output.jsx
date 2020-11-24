@@ -43,7 +43,7 @@ const ContainerDiv = styled.div`
 
 const Output = () => {
   const { configurationState } = useContext(CombineContext);
-  const { configurations } = configurationState;
+  const { configurations, deleteConfigurationByID } = configurationState;
   return (
     <ContainerDiv>
       <ConfigSimulations></ConfigSimulations>
@@ -56,6 +56,9 @@ const Output = () => {
             <p>Auger Length: {configuration.augerLength} </p>
             <span> | </span>
             <p>Fuel Type: {configuration.fuelType}</p>
+            <button onClick={() => deleteConfigurationByID(configuration.id)}>
+              delete
+            </button>
           </ConfigDiv>
         ))}
       </ScrollDiv>
