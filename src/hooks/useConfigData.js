@@ -3,6 +3,7 @@ import useCombineParams from "./useCombineParams";
 import Amplify, { API, graphqlOperation } from "aws-amplify";
 import { createConfiguration, deleteConfiguration } from "../graphql/mutations";
 import { listConfigurations, listSimulations } from "../graphql/queries";
+import useWizard from "./useWizard";
 
 import awsExports from "../aws-exports";
 Amplify.configure(awsExports);
@@ -19,6 +20,8 @@ const useConfigData = () => {
     increaseWheels,
     decreaseWheels,
   } = useCombineParams();
+
+  const { setTrigger, imageIndex } = useWizard();
 
   const [configurations, setConfigurations] = useState([]);
   const [simulations, setSimulations] = useState([]);
@@ -48,6 +51,9 @@ const useConfigData = () => {
         graphqlOperation(listConfigurations)
       );
       const configurations = configurationData.data.listConfigurations.items;
+      configurations.sort(
+        (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+      );
       setConfigurations(configurations);
     } catch (err) {
       console.log("error fetching configurations");
@@ -58,6 +64,7 @@ const useConfigData = () => {
     try {
       const configuration = { augerLength, fuelType, wheelSize, runNum: 1 };
       resetParams();
+      setTrigger(true);
       await API.graphql(
         graphqlOperation(createConfiguration, { input: configuration })
       );
@@ -93,6 +100,7 @@ const useConfigData = () => {
     decreaseLength,
     increaseWheels,
     decreaseWheels,
+    imageIndex,
   };
 };
 

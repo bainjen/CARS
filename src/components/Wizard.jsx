@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { CombineContext } from "./CombineContext";
 
 const WizardDiv = styled.div`
   position: absolute;
@@ -13,9 +14,12 @@ const WizardDiv = styled.div`
 `;
 
 const Wizard = () => {
+  const { wizardState } = useContext(CombineContext);
+  const { imageIndex } = wizardState;
+
   return (
     <WizardDiv>
-      <img src="./images/wizard3.png"></img>
+      <img src={`./images/wizard${imageIndex}.png`}></img>
     </WizardDiv>
   );
 };

@@ -18,6 +18,7 @@ const CombineProvider = (props) => {
     decreaseLength,
     increaseWheels,
     decreaseWheels,
+    imageIndex,
   } = useConfigData();
 
   const { mode, transition, back } = useVisualMode("CONFIG");
@@ -40,6 +41,7 @@ const CombineProvider = (props) => {
         },
         simulationState: { simulations },
         visualState: { mode, transition, back },
+        wizardState: { imageIndex },
       }}
     >
       {props.children}

@@ -10,8 +10,8 @@ const ContainerDiv = styled.div`
   background-color: #333396;
   font-size: 28px;
   font-weight: 600;
-  padding: 5%;
-  width: 90vw;
+  padding: 6%;
+  width: 88vw;
   color: #d7d7f2;
   font-family: "Varela Round", sans-serif;
   & h1 {
@@ -23,7 +23,7 @@ const ContainerDiv = styled.div`
     position: sticky;
     top: 0;
     height: 100vh;
-    width: 90%;
+    width: 88%;
     box-shadow: 0px 4px 8px rgba(51, 51, 150, 0.5);
     & h1 {
       font-size: 2.5em;
