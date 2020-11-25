@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { CombineContext } from "../CombineContext";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 
 // min 8.7 feet
 // max 25.7 feet
@@ -18,10 +20,17 @@ const Auger = () => {
 
   return (
     <AugerDiv>
-      <p>auger length: {augerLength} feet</p>
-      {/* <span>{augerLength} feet</span> */}
-      <button onClick={increaseLength}>+</button>
-      <button onClick={decreaseLength}>-</button>
+      <p>auger length: {augerLength}'</p>
+      {/* <button onClick={increaseLength}>+</button>
+      <button onClick={decreaseLength}>-</button> */}
+      <FontAwesomeIcon
+        icon={faPlusCircle}
+        onClick={increaseLength}
+      ></FontAwesomeIcon>
+      <FontAwesomeIcon
+        icon={faMinusCircle}
+        onClick={decreaseLength}
+      ></FontAwesomeIcon>
     </AugerDiv>
   );
 };

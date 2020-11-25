@@ -4,29 +4,33 @@ import { Helmet } from "react-helmet";
 import Input from "./components/inputs/Input";
 import Output from "./components/outputs/Output";
 import { CombineProvider } from "./components/CombineContext";
+import { device } from "./devices";
 
 const InfoContainer = styled.div`
-  /* margin: 1em; */
-  /* border: solid black 2px; */
-  width: 90vh;
-  /* height: 90vh; */
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
-  justify-content: space-evenly;
+  @media ${device.laptop} {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    align-items: baseline;
+    justify-items: center;
+  }
 `;
 
 const AppDiv = styled.div`
-  margin: 1vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 2vw;
+  & h1 {
+    font-family: "Sacramento", cursive;
+    font-size: 84px;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+  }
 `;
 
 function App() {
   return (
-    <AppDiv>
+    <AppDiv className="app">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Auger Wizard</title>
@@ -34,8 +38,14 @@ function App() {
           href="https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300"
           rel="stylesheet"
         ></link>
+
+        <link
+          href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap"
+          rel="stylesheet"
+        />
       </Helmet>
       <CombineProvider>
+        <h1>Auger Wizard</h1>
         <InfoContainer>
           <Input />
           <Output />

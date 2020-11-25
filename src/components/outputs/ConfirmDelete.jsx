@@ -9,11 +9,13 @@ const ConfirmDelete = () => {
     deleteConfigurationByID,
     chosenConfiguration,
     setChosenConfiguration,
+    fetchConfigurations,
   } = configurationState;
 
   const confirmDelete = () => {
     deleteConfigurationByID(chosenConfiguration);
     setChosenConfiguration(null);
+    fetchConfigurations();
     back();
     //@TODO need to fetch the data again
   };

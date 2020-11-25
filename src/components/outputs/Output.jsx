@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { CombineContext } from "../CombineContext";
-import styled from "styled-components";
 
 import ConfigSimulations from "./ConfigSimulations";
 import CombineOptions from "./CombineOptions";

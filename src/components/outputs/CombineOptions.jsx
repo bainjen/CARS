@@ -12,9 +12,6 @@ const ConfigTable = styled.table`
   border-collapse: collapse;
   background: white;
   border-radius: 6px;
-  background-color: #b8ebb8;
-  height: 40vh;
-  width: 50vw;
   overflow-x: hidden;
   overflow-y: auto;
   text-align: center;
@@ -53,10 +50,10 @@ const CombineOptions = (props) => {
     transition(CONFIRM, false);
     setChosenConfiguration(id);
   };
-
+  console.log(configurations);
   const tableData = configurations.map((configuration, index) => {
     return (
-      <BodyRow key={index}>
+      <BodyRow key={configuration.id}>
         <td>{`${configuration.wheelSize}"`}</td>
         <td>{`${configuration.augerLength}'`}</td>
         <td>{configuration.fuelType}</td>

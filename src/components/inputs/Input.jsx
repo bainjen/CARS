@@ -10,7 +10,7 @@ import { CombineContext } from "../CombineContext";
 const InputDiv = styled.div`
   /* margin: 1em; */
   /* height: 40vh; */
-  width: 50vw;
+  /* width: 50vw; */
   font-size: 2vw;
   /* border: solid black 2px; */
   display: flex;
@@ -20,6 +20,15 @@ const InputDiv = styled.div`
     font-family: "Montserrat", sans-serif;
     font-weight: 300;
   }
+`;
+
+const CreateBtn = styled.button`
+  height: 2em;
+  width: 4em;
+  border-radius: 6px;
+  border: display-none;
+  font-size: 0.75em;
+  font-family: "Montserrat", sans-serif;
 `;
 
 const Input = () => {
@@ -33,7 +42,7 @@ const Input = () => {
         <Auger />
         <Fuel />
         <Wheels />
-        <button onClick={addConfiguration}>add</button>
+        <CreateBtn onClick={addConfiguration}>Add</CreateBtn>
       </InputDiv>
     </div>
   );
