@@ -8,17 +8,18 @@ const FuelDiv = styled.div`
 
 const FuelButton = styled.button`
   background-color: ${(props) =>
-    props.label === props.currentFuelType ? "#5A5BD6" : "#EDEDED"};
+    props.label === props.currentFuelType ? " #f2cf12" : "#EDEDED"};
 
   color: ${(props) =>
     props.label === props.currentFuelType ? "white" : "rgb(103, 103, 103)"};
   height: 2em;
-  width: 5em;
+  width: 4.5em;
   border-radius: 6px;
   border: 0px;
   font-size: 0.75em;
   font-family: "Montserrat", sans-serif;
   outline: none;
+  font-weight: 600;
   &:active {
     border: 0px;
     outline: none;

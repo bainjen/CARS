@@ -7,8 +7,6 @@ import { listConfigurations, listSimulations } from "../graphql/queries";
 import awsExports from "../aws-exports";
 Amplify.configure(awsExports);
 
-// const initialState = { wheelSize: "", augerLength: "", fuelType: "" };
-
 const useConfigData = () => {
   const {
     augerLength,
@@ -21,7 +19,7 @@ const useConfigData = () => {
     increaseWheels,
     decreaseWheels,
   } = useCombineParams();
-  // const [formState, setFormState] = useState(initialState);
+
   const [configurations, setConfigurations] = useState([]);
   const [simulations, setSimulations] = useState([]);
 
@@ -30,10 +28,6 @@ const useConfigData = () => {
     fetchSimulations();
   }, []);
 
-  // fetch simulations
-  // update state variable that holds simulation array (need to create)
-  // filter by id and sort by createdAt in component
-  console.log("simulations", simulations);
   async function fetchSimulations() {
     try {
       const simulationData = await API.graphql(
@@ -63,8 +57,6 @@ const useConfigData = () => {
   async function addConfiguration() {
     try {
       const configuration = { augerLength, fuelType, wheelSize, runNum: 1 };
-      console.log(configuration);
-      // setConfigurations([...configurations, configuration]);
       resetParams();
       await API.graphql(
         graphqlOperation(createConfiguration, { input: configuration })

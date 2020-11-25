@@ -12,14 +12,14 @@ const InfoContainer = styled.div`
   align-items: center;
   @media ${device.laptop} {
     display: grid;
-    grid-template-columns: 0.5fr 1fr;
+    grid-template-columns: 0.4fr 1fr;
+    grid-template-rows: 100%;
     align-items: baseline;
     justify-items: center;
   }
 `;
 
 const AppDiv = styled.div`
-  margin: 2vw;
   & h1 {
     /* font-family: "Sacramento", cursive; */
     font-family: "Permanent Marker", cursive;

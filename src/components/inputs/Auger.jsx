@@ -11,14 +11,14 @@ const AugerDiv = styled.div`
     width: 250px;
   }
   & svg {
-    color: #5a5bd6;
+    color: #f2cf12;
     margin-left: 5px;
   }
   & svg:hover {
     color: #a878ff;
   }
   & svg:active {
-    color: #f2cf12;
+    color: #5a5bd6;
   }
 `;
 

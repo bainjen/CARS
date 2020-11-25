@@ -6,13 +6,10 @@ import CombineOptions from "./CombineOptions";
 import ConfirmDelete from "./ConfirmDelete";
 
 const CONFIG = "CONFIG";
-const EMPTY = "EMPTY";
 const SIMS = "SIMS";
 const CONFIRM = "CONFIRM";
 
 const Output = () => {
-  // const [chosenConfiguration, setChoseConfiguration] = useState();
-
   const { visualState, configurationState } = useContext(CombineContext);
   const { mode, transition } = visualState;
   const { chosenConfiguration, setChosenConfiguration } = configurationState;

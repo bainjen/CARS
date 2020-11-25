@@ -24,8 +24,6 @@ const CombineProvider = (props) => {
 
   const [chosenConfiguration, setChosenConfiguration] = useState();
 
-  console.log(chosenConfiguration);
-
   return (
     <CombineContext.Provider
       value={{
