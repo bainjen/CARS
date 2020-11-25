@@ -16,13 +16,9 @@ const gql = require("graphql-tag");
 const graphql = require("graphql");
 const { print } = graphql;
 const {
-  // options,
-  // placeRandomRock,
-  // calculateRockManeuver,
   generateRocks,
   calculateFieldPercentage,
   calculatePlaneTime,
-  // totalCombineWeight,
   calculateCostPerRun,
   calculateEfficiencyPerRun,
 } = require("../helpers/simCalculations");
@@ -65,7 +61,6 @@ const createSimulation = gql`
 exports.handler = async (event) => {
   // getting the configuration data from DynamoDB
   let configurationData;
-  const rocks = generateRocks(3);
   try {
     const graphqlData = await axios({
       url: process.env.GRAPHQL_ENDPOINT,
@@ -86,6 +81,7 @@ exports.handler = async (event) => {
   // putting new data into simulations in DynamoDB
   try {
     for (const row of configurationData) {
+      const rocks = generateRocks(3);
       const graphqlData = await axios({
         url: process.env.GRAPHQL_ENDPOINT,
         method: "post",
