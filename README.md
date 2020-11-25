@@ -8,7 +8,7 @@ Users can specify auger length, fuel type, and a wheel size to create a combine.
 
 Once a configuration is added, a simulation test fires every hour to measure the time that each particular combine takes to plane a 10 x 10 acre field, the percentage of the field covered, and the cost of the run.
 
-The efficiency value of each sumlation run is averaged to make an overall efficiency mesaure for each combine configuration.
+The efficiency value of each simlation run is averaged to make an overall efficiency measure for each combine configuration.
 
 ![wizard](docs/wizard_ding.gif)
 
@@ -50,7 +50,7 @@ To both bush your amplify resources and run the react front end, run:
 amplify serve
 ```
 
-...or just the front-end with:
+...or just the front end with:
 
 ```sh
 yarn start #npm run start
@@ -84,7 +84,7 @@ This function takes in each combine configuration from the database and runs a s
 
 Each simulation randomly places three rock obstacles in the field, which the combine must avoid.
 
-The calulations made to turn the combine and to avoid rocks are simple and do not directly reflect reality.
+The calculations made to turn the combine and to avoid rocks are simple and do not directly reflect reality.
 
 It assumes that the combine:
 
@@ -98,7 +98,7 @@ It assumes that the combine:
 
 ## Future Development Ideas
 
-- implemting batch mutations in GraphQL for more efficient updates to DynamoDB tables
+- implementing batch mutations in GraphQL for more efficient updates to DynamoDB tables
 
 - add user authentication
 
