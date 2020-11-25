@@ -23,7 +23,6 @@ const {
   calculateEfficiencyPerRun,
 } = require("../helpers/simCalculations");
 
-// pulls an array of items (objects)
 const listConfigurations = gql`
   query listConfigurations {
     listConfigurations {
@@ -55,8 +54,6 @@ const createSimulation = gql`
     }
   }
 `;
-
-// "CloudWatchRule": "rate(1 hour)" in parameters.json to run once per hour
 
 exports.handler = async (event) => {
   // getting the configuration data from DynamoDB
