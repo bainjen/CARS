@@ -27,19 +27,19 @@ Initialize amplify back end and create a new development environment from the am
 amplify init
 ```
 
-The final output from amplify init outputs your GraphQL endpoint and your GraphQL API key. Save these values in `CARS/amplify/backend/function/runSimulations/src/.env`
+Push your API and lambda function to AWS:
+
+```sh
+amplify push
+```
+
+The final output from amplify push outputs your GraphQL endpoint and your GraphQL API key. Save these values in `CARS/amplify/backend/function/runSimulations/src/.env`
 
 ```txt
 # CARS/amplify/backend/function/runSimulations/src/.env
 
 GRAPHQL_ENDPOINT="<your GraphQL endpoint>"
 GRAPHQL_API_KEY="<your GraphQL API key>"
-```
-
-Push your API and lambda function to AWS:
-
-```sh
-amplify push
 ```
 
 **To run the application locally**
