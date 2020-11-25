@@ -4,14 +4,22 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 
-// min 8.7 feet
-// max 25.7 feet
-// user input form or +/- buttons to change size
-
 const AugerDiv = styled.div`
   display: flex;
-  margin: 0.5em;
-  /* justify-content: flex-start; */
+  align-items: center;
+  & div {
+    width: 250px;
+  }
+  & svg {
+    color: #5a5bd6;
+    margin-left: 5px;
+  }
+  & svg:hover {
+    color: #a878ff;
+  }
+  & svg:active {
+    color: #f2cf12;
+  }
 `;
 
 const Auger = () => {
@@ -20,9 +28,9 @@ const Auger = () => {
 
   return (
     <AugerDiv>
-      <p>auger length: {augerLength}'</p>
-      {/* <button onClick={increaseLength}>+</button>
-      <button onClick={decreaseLength}>-</button> */}
+      <div>
+        <p>auger length: {augerLength}'</p>
+      </div>
       <FontAwesomeIcon
         icon={faPlusCircle}
         onClick={increaseLength}

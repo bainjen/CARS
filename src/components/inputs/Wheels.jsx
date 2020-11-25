@@ -8,9 +8,20 @@ import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 
 const WheelDiv = styled.div`
   display: flex;
-  margin: 0.5em;
-  /* justify-content: flex-end; */
-  /* color: rgb(103, 103, 103); */
+  align-items: center;
+  & div {
+    width: 250px;
+  }
+  & svg {
+    color: #5a5bd6;
+    margin-left: 5px;
+  }
+  & svg:hover {
+    color: #a878ff;
+  }
+  & svg:active {
+    color: #f2cf12;
+  }
 `;
 
 const Wheels = () => {
@@ -19,7 +30,9 @@ const Wheels = () => {
 
   return (
     <WheelDiv>
-      <p>wheel size: {wheelSize}"</p>
+      <div>
+        <p>wheel size: {wheelSize}"</p>
+      </div>
       <FontAwesomeIcon
         icon={faPlusCircle}
         onClick={increaseWheels}
@@ -28,8 +41,6 @@ const Wheels = () => {
         icon={faMinusCircle}
         onClick={decreaseWheels}
       ></FontAwesomeIcon>
-      {/* <button onClick={increaseWheels}>+</button> */}
-      {/* <button onClick={decreaseWheels}>-</button> */}
     </WheelDiv>
   );
 };

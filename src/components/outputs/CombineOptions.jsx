@@ -15,7 +15,7 @@ const ConfigTable = styled.table`
   overflow-x: hidden;
   overflow-y: auto;
   text-align: center;
-  font-size: 1.5vw;
+  font-size: 0.75em;
   margin: 0 auto;
   /* position: relative; */
   & thead {
@@ -25,6 +25,7 @@ const ConfigTable = styled.table`
 `;
 
 const BodyRow = styled.tr`
+  font-weight: 300;
   border: solid 1px rgb(193, 193, 193);
   background-color: white;
   color: rgb(103, 103, 103);
@@ -34,9 +35,10 @@ const BodyRow = styled.tr`
 `;
 
 const ContainerDiv = styled.div`
-  /* height: 50vh; */
-  width: 50vw;
-  margin: 1em;
+  font-size: 28px;
+  font-weight: 600;
+  font-family: "Varela Round", sans-serif;
+  color: #4b4a4a;
 `;
 const CONFIRM = "CONFIRM";
 
