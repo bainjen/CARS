@@ -8,6 +8,17 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Wizard from "../Wizard";
 
+const ContainerDiv = styled.div`
+  position: relative;
+  font-size: 28px;
+  font-weight: 600;
+  font-family: "Varela Round", sans-serif;
+  color: #4b4a4a;
+  & h2 {
+    color: #eeeef4;
+    text-align: center;
+  }
+`;
 const ConfigTable = styled.table`
   border-spacing: 1;
   border-collapse: collapse;
@@ -32,18 +43,6 @@ const BodyRow = styled.tr`
   color: rgb(103, 103, 103);
   &:hover {
     background-color: rgb(233 233 255);
-  }
-`;
-
-const ContainerDiv = styled.div`
-  position: relative;
-  font-size: 28px;
-  font-weight: 600;
-  font-family: "Varela Round", sans-serif;
-  color: #4b4a4a;
-  & h2 {
-    color: #e9e9f1;
-    text-align: center;
   }
 `;
 

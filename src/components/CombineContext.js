@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import useConfigData from "../hooks/useConfigData";
 import useVisualMode from "../hooks/useVisualMode";
 const CombineContext = React.createContext();
