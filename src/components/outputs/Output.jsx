@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { CombineContext } from "../CombineContext";
 
 import ConfigSimulations from "./ConfigSimulations";

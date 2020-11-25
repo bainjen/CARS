@@ -19,7 +19,7 @@ const Wizard = () => {
 
   return (
     <WizardDiv>
-      <img src={`./images/wizard${imageIndex}.png`}></img>
+      <img src={`./images/wizard${imageIndex}.png`} alt={"wizard"}></img>
     </WizardDiv>
   );
 };
