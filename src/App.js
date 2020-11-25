@@ -19,14 +19,7 @@ const InfoContainer = styled.div`
   }
 `;
 
-const AppDiv = styled.div`
-  & h1 {
-    font-family: "Permanent Marker", cursive;
-    font-size: 84px;
-    margin-top: 0.25em;
-    margin-bottom: 0.25em;
-  }
-`;
+const AppDiv = styled.div``;
 
 function App() {
   return (

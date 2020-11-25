@@ -1,8 +1,13 @@
+html {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   background-color: rgb(190, 204, 244);
   color: rgb(34, 34, 34);
   font-family: "Lora", serif;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

@@ -7,16 +7,21 @@ import {
   faChevronCircleRight,
 } from "@fortawesome/free-solid-svg-icons";
 import Wizard from "../Wizard";
+import { device } from "../../devices";
 
 const ContainerDiv = styled.div`
   position: relative;
-  font-size: 28px;
+  margin: 2%;
+  font-size: 18px;
   font-weight: 600;
   font-family: "Varela Round", sans-serif;
   color: #4b4a4a;
   & h2 {
     color: #eeeef4;
     text-align: center;
+  }
+  @media ${device.tablet} {
+    font-size: 28px;
   }
 `;
 const ConfigTable = styled.table`

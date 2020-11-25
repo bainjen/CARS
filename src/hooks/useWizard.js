@@ -15,7 +15,7 @@ const useWizard = () => {
           return 1;
         }
       });
-    }, 200);
+    }, 300);
     return () => clearInterval(interval);
   }, [trigger, imageIndex]);
 

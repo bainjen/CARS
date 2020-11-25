@@ -15,9 +15,11 @@ const ContainerDiv = styled.div`
   color: #d7d7f2;
   font-family: "Varela Round", sans-serif;
   & h1 {
-    font-size: 1.5em;
+    font-family: "Permanent Marker", cursive;
+    font-size: 2.5em;
     color: #f2cf12;
     margin-top: 0px;
+    margin-bottom: 0.25em;
   }
   @media ${device.laptop} {
     position: sticky;
@@ -39,9 +41,15 @@ const InputDiv = styled.div`
     font-size: 78px;
   }
   & p {
+    font-size: 0.9em;
     font-family: "Varela Round", sans-serif;
     font-weight: 400;
     color: #ffffed;
+  }
+  @media ${device.laptop} {
+    & p {
+      font-size: 1em;
+    }
   }
 `;
 

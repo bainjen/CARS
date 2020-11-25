@@ -3,12 +3,13 @@ import { CombineContext } from "../CombineContext";
 import styled from "styled-components";
 import moment from "moment";
 import { mean } from "lodash";
+import { device } from "../../devices";
 
 const ContainerDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 28px;
+  font-size: 18px;
   font-weight: 600;
   font-family: "Varela Round", sans-serif;
   color: #4b4a4a;
@@ -21,6 +22,9 @@ const ContainerDiv = styled.div`
     text-align: center;
     font-size: 0.85em;
     margin-bottom: 1em;
+  }
+  @media ${device.tablet} {
+    font-size: 28px;
   }
 `;
 
