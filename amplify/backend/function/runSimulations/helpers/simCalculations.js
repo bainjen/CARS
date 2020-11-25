@@ -113,7 +113,7 @@ const calculateCostPerRun = (fuelType, runNum, wheelSize, augerLength) => {
   return cost;
 };
 
-// calculates efficiency per run -- can calculate average efficiency on front end
+// calculates efficiency per run -- calculating average efficiency on front end
 const calculateEfficiencyPerRun = (
   wheelSize,
   augerLength,
@@ -128,14 +128,6 @@ const calculateEfficiencyPerRun = (
   const e = 600 / timeTakenMins + percentFieldChosen + runCost / 350;
   return e;
 };
-
-// custom test script
-// const rocks = generateRocks(3);
-// console.log(calculatePlaneTime(67, 9.7, rocks));
-// console.log(calculateFieldPercentage(25.7, rocks));
-// console.log(totalCombineWeight(61, 8.7));
-// console.log(calculateCostPerRun("electric", 2, 60, 8.7));
-// console.log(calculateEfficiencyPerRun(69, 9.7, rocks, "diesel", 1000));
 
 module.exports = {
   options,

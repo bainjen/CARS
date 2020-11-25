@@ -21,7 +21,6 @@ const InfoContainer = styled.div`
 
 const AppDiv = styled.div`
   & h1 {
-    /* font-family: "Sacramento", cursive; */
     font-family: "Permanent Marker", cursive;
     font-size: 84px;
     margin-top: 0.25em;
@@ -34,24 +33,19 @@ function App() {
     <AppDiv className="app">
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Auger Wizard</title>
+        <title>Combine Wizard</title>
         <link
           href="https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300"
-          rel="stylesheet"
-        ></link>
-
-        <link
-          href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap"
           rel="stylesheet"
         />
         <link
           href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
           rel="stylesheet"
-        ></link>
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
           rel="stylesheet"
-        ></link>
+        />
       </Helmet>
       <CombineProvider>
         <InfoContainer>

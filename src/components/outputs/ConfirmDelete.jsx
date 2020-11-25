@@ -20,7 +20,6 @@ const ContainerDiv = styled.div`
 `;
 
 const ConfirmBtn = styled.button`
-  /* height: 2em; */
   width: 7em;
   padding: 0.5em;
   border-radius: 6px;
@@ -37,7 +36,7 @@ const ConfirmBtn = styled.button`
 
 const ConfirmDelete = () => {
   const { visualState, configurationState } = useContext(CombineContext);
-  const { back, transition } = visualState;
+  const { back } = visualState;
   const {
     deleteConfigurationByID,
     chosenConfiguration,
@@ -50,7 +49,6 @@ const ConfirmDelete = () => {
     setChosenConfiguration(null);
     fetchConfigurations();
     back();
-    //@TODO need to fetch the data again
   };
 
   return (

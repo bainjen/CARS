@@ -15,8 +15,6 @@ const moveYPos = (
   }
 };
 
-// @TODO xposition is updating one last time after setStartSimulation has been flagged as false
-
 const useMoveCombine = (wheelSize, augerLength) => {
   const [xPos, setXPos] = useState(0);
   const [yPos, setYPos] = useState(2000);

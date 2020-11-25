@@ -34,6 +34,14 @@ amplify push
 
 **To run the application locally**
 
+To both bush your amplify resources and run the react front end, run:
+
+```sh
+amplify serve
+```
+
+...or just the front-end with:
+
 ```sh
 yarn start #npm run start
 ```
@@ -47,5 +55,7 @@ Simulations are run using an hourly AWS lambda function which can be mocked loca
 ```sh
 amplify mock function runSimulations
 ```
+
+**In order to view the simulation runs on the front end, be sure to run the script above and then refresh your browser. Every run, will mock one new simulation per combine configuration.**
 
 This function takes in each combine configuration from the database and runs a simulation, inputting data to the Simulation table and updating the current number of simulation runs on each configuration.

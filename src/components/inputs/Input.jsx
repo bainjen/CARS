@@ -66,7 +66,7 @@ const Input = () => {
 
   return (
     <ContainerDiv>
-      <h1>Auger Wizard</h1>
+      <h1>Combine Wizard</h1>
       <h2>Configure a New Combine: </h2>
       <InputDiv>
         <Auger />
