@@ -33,15 +33,6 @@ Push your API and lambda function to AWS:
 amplify push
 ```
 
-The final output from amplify push outputs your GraphQL endpoint and your GraphQL API key. Save these values in `CARS/amplify/backend/function/runSimulations/src/.env`
-
-```txt
-# CARS/amplify/backend/function/runSimulations/src/.env
-
-GRAPHQL_ENDPOINT="<your GraphQL endpoint>"
-GRAPHQL_API_KEY="<your GraphQL API key>"
-```
-
 **To run the application locally**
 
 To both bush your amplify resources and run the react front end, run:
@@ -124,6 +115,8 @@ It assumes that the combine:
 ![home page](docs/cars_delete_confirmation.png)
 
 **Responsive design**
+
 On mobile
+
 ![responsive](docs/responsive1.png)
 ![responsive](docs/responsive2.png)

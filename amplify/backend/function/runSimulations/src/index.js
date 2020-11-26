@@ -11,7 +11,6 @@
 	REGION
 Amplify Params - DO NOT EDIT */
 const axios = require("axios");
-require("dotenv").config({ path: "./.env" });
 const gql = require("graphql-tag");
 const graphql = require("graphql");
 const { print } = graphql;
@@ -60,10 +59,10 @@ exports.handler = async (event) => {
   let configurationData;
   try {
     const graphqlData = await axios({
-      url: process.env.GRAPHQL_ENDPOINT,
+      url: process.env.API_CARS_GRAPHQLAPIENDPOINTOUTPUT,
       method: "post",
       headers: {
-        "x-api-key": process.env.GRAPHQL_API_KEY,
+        "x-api-key": process.env.API_CARS_GRAPHQLAPIKEYOUTPUT,
       },
       data: {
         query: print(listConfigurations),
@@ -80,10 +79,10 @@ exports.handler = async (event) => {
     for (const row of configurationData) {
       const rocks = generateRocks(3);
       const graphqlData = await axios({
-        url: process.env.GRAPHQL_ENDPOINT,
+        url: process.env.API_CARS_GRAPHQLAPIENDPOINTOUTPUT,
         method: "post",
         headers: {
-          "x-api-key": process.env.GRAPHQL_API_KEY,
+          "x-api-key": process.env.API_CARS_GRAPHQLAPIKEYOUTPUT,
         },
         data: {
           query: print(createSimulation),
